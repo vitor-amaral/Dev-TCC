@@ -1,0 +1,63 @@
+{include file="menu.html"}       
+<html>
+    {literal}
+    <head>
+        <title>Funcionario</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/processo.css">
+        <script type="text/javascript">
+            function abreListagem(){
+                window.location.href="listaFuncionarios.php";
+            }
+        </script>
+    </head>
+    {/literal}
+    <body>
+        <div id="conteudo">
+            <div class="container1">
+                <div class="asdf">
+                    {if $ret eq 'sa'}
+                            <span class="label label-success">SUCESSO</span>
+                            <span> O Funcionario foi Alterado com Sucesso!</span>
+                     {/if}
+                     {if $ret eq 's'}
+                            <span class="label label-success">SUCESSO</span>
+                            <span> O Funcionario foi Cadastrado com Sucesso!</span>
+                     {/if}
+                <fieldset id="tabelaCadastro">
+                    <legend id="textoNavegacao">&nbsp;&nbsp;Funcionario :: {$msg}</legend>
+                    <form class="well form-inline" name="formFuncionario" id="formFuncionario" method="POST" action="salvaFuncionario.php">
+                        <div class="control-group">
+                            <input type="hidden" name="Save" id="Save" value="{$Save}" />
+                            <input type="hidden" name="idFuncionario" id="idFuncionario" value="{$funcionario->getFuncionario_ID()}" />
+                            <div class="controls" style="margin-bottom:10px;">
+                                <label for="nomeFuncionario" class="control-label" style="font-size:13px;">Nome:</label>
+                                <input type="text" id="nomeFuncionario" name="nomeFuncionario" class="input-xlarge arrendondaInputSelect" value="{$funcionario->getFuncionario_Nome()}">
+                           
+                                <label for="matriculaFuncionario" class="control-label" style="font-size:13px;">Matricula:</label>
+                                <input type="text" id="matriculaFuncionario" name="matriculaFuncionario" class="input-xlarge arrendondaInputSelect" value="{$funcionario->getFuncionario_Matricula()}">                            
+                            </div>
+                            <div class="controls" style="margin-bottom:10px;">   
+                                <label for="idcargo" class="control-label" style="font-size:13px;">Cargo:</label>
+                                <select id="idcargo" name="idcargo" class="arrendondaInputSelect">
+                                   <option value=""></option>
+                                    {foreach from=$cargos item=cargo}
+                                    <option value="{$cargo->getCargo_ID()}" {if $cargo->getCargo_ID() eq $funcionario->getCargo_ID()} selected='selected' {/if} >{$cargo->getCargo_Descricao()}</option> 
+                                    {/foreach}
+                                </select>                    
+                            </div>                            
+                            
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" type="submit">{$nomeBotao}</button>     
+                        </div>
+                    </form>
+                    <button class="btn" onclick="return abreListagem();">Voltar para Listagem</button>
+                </fieldset>
+            </div>
+         </div>
+       </div>
+    </body>
+</html>

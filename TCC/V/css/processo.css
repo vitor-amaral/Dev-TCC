@@ -1,0 +1,92 @@
+/* 
+    Document   : processo
+    Created on : 02/04/2012, 20:28:19
+    Author     : Amanda
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#conteudoProcesso{
+   padding-bottom: 150px;
+    padding-left: 8px;
+    padding-top: 39px;
+    width: 100%;
+}
+
+#conteudoProcesso .barraLogo{
+    float:left;
+    background-color: whitesmoke;
+}
+
+#conteudoProcesso .teste{
+    float:left;
+    left: 241px;
+    position: relative;
+    top: 26px;
+    width: 80%;
+}
+
+#textoNavegacao{
+   font-family:Arial;
+   font-style: italic;
+   font-size:16px;
+   font-weight:bold;
+   background-color:#4D9DA8;
+   color:white;
+   width: 950px;
+   -moz-border-radius: 10px; /* Para Firefox */
+   -webkit-border-radius: 10px; /*Para Safari e Chrome */
+   border-radius: 10px; /* Para Opera 10.5+*/
+}
+
+#textoNavegacaoProcesso{
+   font-family:Arial;
+   font-style: italic;
+   font-size:16px;
+   font-weight:bold;
+   background-color:#4D9DA8;
+   color:white;
+   width: 1000px;
+   -moz-border-radius: 10px; /* Para Firefox */
+   -webkit-border-radius: 10px; /*Para Safari e Chrome */
+   border-radius: 10px; /* Para Opera 10.5+*/
+}
+
+#tabelaCadastro{
+    width: 950px;
+/*    height:408px;*/
+    overflow: auto;
+    -moz-border-radius: 10px; /* Para Firefox */
+    -webkit-border-radius: 10px; /*Para Safari e Chrome */
+    border-radius: 10px; /* Para Opera 10.5+*/
+}
+
+#tabelaCadastroProcesso{
+    width: 1000px;
+/*    height:408px;*/
+    overflow: auto;
+    -moz-border-radius: 10px; /* Para Firefox */
+    -webkit-border-radius: 10px; /*Para Safari e Chrome */
+    border-radius: 10px; /* Para Opera 10.5+*/
+}
+
+.arrendondaInputSelect{
+    -moz-border-radius: 10px; /* Para Firefox */
+    -webkit-border-radius: 10px; /*Para Safari e Chrome */
+    border-radius: 10px; /* Para Opera 10.5+*/
+}
+
+* {margin:0; padding:0;}
+.container1 {width:950px; margin:0 auto;height:100%;}
+#topo {background:url('../img/bgTopo.png') top left repeat-x #f2f2f2; height:95px;margin-top:42px;}
+h1 {float:left; margin-top:3px;}
+h1 a {background:url('../img/logoSistema.png') top left no-repeat; width: 168px; height: 62px; display:block; text-indent:-9999px;}
+h2 { float:left; margin-left:20px; border-left: #84c1db solid 2px; color:#84c1db; font-family:Tahoma, Geneva, sans-serif; font-size:16px; padding-left:20px; margin-top:30px; font-weight:normal; font-style:italic}
+#conteudo {background:#f2f2f2;height:535px;}
+span.lisFormIcon { margin:0 -13px 0 2px;}
+ul.lisFormVert { margin-bottom:-3px; }
+ul.lisFormVert li { width:100%; clear:both; border-top:0; padding:0 0 3px; margin:0; list-style:none;}
+
+.tdBotao{
+    width: 10px;
+}

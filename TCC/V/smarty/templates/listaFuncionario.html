@@ -1,0 +1,95 @@
+ {include file="menu.html"}           
+<html>
+    {literal}
+    <head>
+        <title>Funcionarios</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/processo.css">
+        <script type="text/javascript" >
+           function abreNovo(){
+               window.location.href="cadFuncionario.php";
+           }
+           
+           function editar(idFuncionario){
+             window.location.href="cadFuncionario.php?idFuncionario="+idFuncionario;  
+             
+           }
+           
+           function enviar(){
+               $("#formFuncionario").submit();
+
+           }
+           
+           function excluir(idFuncionario){
+               if(confirm("Deseja realmente Excluir?")){
+                   location.href="excluirFuncionario.php?idFuncionario="+idFuncionario;
+               }else{
+                   return false;
+               }
+           
+           }
+        </script>
+    </head>
+    {/literal}
+    <body>
+        <div id="conteudo" {if $totalFuncionarios > 10} style='height:100%;' {/if}>
+            <div class="container1">
+                    <fieldset id="tabelaCadastro">
+                        <legend id="textoNavegacao">&nbsp;&nbsp;Funcionarios :: Listagem</legend>
+                        <form class="well form-search" name="formFuncionario" id="formFuncionario" method="POST" action="listaFuncionarios.php">
+                                <div class="control-group">
+                                    <div class="controls" style="margin-bottom:10px;">
+                                        <label for="nomeFuncionario" class="control-label" style="font-size:13px;">Nome:</label>
+                                        <input type="text" id="nomeFuncionario" name="nomeFuncionario" class="input-xlarge arrendondaInputSelect" value="{$nomeFuncionario}">      
+ 
+                                        <label for="matriculaFuncionario" class="control-label" style="font-size:13px;">Matricula:</label>
+                                        <input type="text" id="matriculaFuncionario" name="matriculaFuncionario" class="input-xlarge arrendondaInputSelect" value="{$matriculaFuncionario}"> 
+                                  
+                                    </div>
+                                    <div class="controls" style="margin-bottom:10px;">   
+                                        <label for="idcargo" class="control-label" style="font-size:13px;">Cargo:</label>
+                                        <select id="idcargo" name="idcargo" class="arrendondaInputSelect">
+                                           <option value=""></option>
+                                            {foreach from=$cargos item=cargo}
+                                            <option value="{$cargo->getCargo_ID()}" {if $cargo->getCargo_ID() eq $idcargo} selected='selected' {/if} >{$cargo->getCargo_Descricao()}</option> 
+                                            {/foreach}
+                                        </select>                    
+                                    </div>
+                                    <div>    
+                                        <button type="submit" onclick="enviar();" class="btn">Procurar</button>
+                                    </div>
+                                </div>
+                           </form>
+                    </fieldset>
+                    <button onclick="return abreNovo();" class="btn">Novo Funcionario</button>
+                    <div class="grid">                        
+                          <table class="table table-striped table-bordered table-condensed"> 
+                              <tr>
+                                  <th>Nome</th>
+                                  <th>Matricula</th>
+                                  <th>Cargo</th>
+                                  <th>id</th>                                   
+                                  <th class=tdBotao>Editar</th>
+                                  <th class=tdBotao>Excluir</th>
+                              </tr> 
+                              
+                              {foreach from=$funcionarios item=funcionario }
+                              
+                              <tr>
+                                  <td>{$funcionario->getFuncionario_Nome()}</td>
+                                  <td>{$funcionario->getFuncionario_Matricula()}</td>
+                                  <td>{$funcionario->getCargo_Descricao()}</td>            
+                                  <TD>{$funcionario->getFuncionario_ID()}</TD>              
+                                  <td><a href="#" onclick="return editar('{$funcionario->getFuncionario_ID()}');"  alt="Clique para Editar este Funcionario"><i class="icon-edit"></i></a></td>                                  
+                                  <td><a href="#" onclick="return excluir('{$funcionario->getFuncionario_ID()}');" alt="Clique para Excluir este Funcionario"><i class="icon-trash"></i></a></td>
+                              </tr>
+                              
+                              {/foreach}
+                          </table>
+                    </div>
+            </div>
+       </div>
+    </body>
+</html>
