@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-09-02 18:56:55
+<?php /* Smarty version 2.6.26, created on 2012-09-08 21:49:09
          compiled from menu.html */ ?>
 <!doctype html>
 <!--[if lt IE 7 ]> <html class="no-js ie6" dir="ltr" lang="en-US"> <![endif]-->
@@ -45,7 +45,7 @@
                         </a>
                         <div class="nav-collapse">
                             <ul id="menu-menu" class="nav"><li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="./index.php">Home</a></li>
-                                <li id="menu-item-7" class="menu-item menu-item-type-custom menu-item-object-custom dropdown menu-item-7"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Réu<b class="caret"></b></a>
+<!--                                <li id="menu-item-7" class="menu-item menu-item-type-custom menu-item-object-custom dropdown menu-item-7"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Réu<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
                                         <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="cadAutor.php?tipoPessoa=R">Cadastrar</a></li>
                                         <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="listaAutor.php?tipoPessoa=R">Consultar</a></li>
@@ -63,7 +63,7 @@
                                         <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="listaProcessos.php">Consultar</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Pendências</a></li>
+                                <li><a href="#">Pendências</a></li>  -->
                             </ul>            
 
                             <ul class="nav pull-right">
@@ -77,6 +77,7 @@
                                         <li><a href="listaAdvogados.php">Advogados</a></li>  -->
                                         <li><a href="listaCidades.php">Cidades</a></li>
                                         <li><a href="listaFuncionarios.php">Funcionarios</a></li>
+                                        <li><a href="listaUsuarios.php">Usuarios</a></li>                                        
                                         <!--<li><a href="#">�?ndices</a></li>       --> 
                                         
                                         <li class="divider"></li>

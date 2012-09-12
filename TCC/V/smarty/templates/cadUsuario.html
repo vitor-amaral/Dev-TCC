@@ -1,0 +1,137 @@
+{include file="menu.html"}       
+<html>
+    {literal}
+    <head>
+        <title>Usuario</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/processo.css">
+        <script type="text/javascript">
+            function abreListagem(){
+                window.location.href="listaUsuarios.php";
+            }
+            
+           function testasenha(){
+              
+              if($("#confsenhaUsuario").val() == $("#novasenhaUsuario").val())
+              {
+                  $("#status").html("<i class=\"icon-ok\"></i>");
+              }
+              else
+              {
+                  $("#status").html("<i class=\"icon-remove\"></i>");
+              }
+           }
+            
+           function enviar(){
+              
+              if($("#confsenhaUsuario").val() == $("#novasenhaUsuario").val())
+              {
+                  $("#formUsuario").submit(); 
+              }
+              
+           }   
+           
+
+        </script>
+    </head>
+    {/literal}
+    <body>
+        <div id="conteudo">
+            <div class="container1">
+                <div class="asdf">
+                    {if $ret eq 'sa'}
+                            <span class="label label-success">SUCESSO</span>
+                            <span> O Usuario foi Alterado com Sucesso!</span>
+                     {/if}
+                     {if $ret eq 's'}
+                            <span class="label label-success">SUCESSO</span>
+                            <span> O Usuario foi Cadastrado com Sucesso!</span>
+                     {/if}
+                <fieldset id="tabelaCadastro">
+                    <legend id="textoNavegacao">&nbsp;&nbsp;Usuario :: {$msg}</legend>
+                    <form class="well form-inline" name="formUsuario" id="formUsuario" method="POST" action ="salvaUsuario.php" >
+                        <div class="control-group">
+                            <input type="hidden" name="Save" id="Save" value="{$Save}" />
+                            <input type="hidden" name="idUsuario" id="idUsuario" value="{$usuario->getUsuario_ID()}" />
+                            <div class="controls" style="margin-bottom:10px;">
+                                <label for="loginUsuario" class="control-label" style="font-size:13px;">Login:</label>
+                                <input type="text" id="loginUsuario" name="loginUsuario" class="input-xlarge arrendondaInputSelect" value="{$usuario->getUsuario_Login()}">
+                           
+                                <label for="idTipoAcesso" class="control-label" style="font-size:13px;">Tipo Acesso:</label>
+                                <select id="idTipoAcesso" name="idTipoAcesso" class="arrendondaInputSelect">
+                                   <option value=""></option>
+                                    {foreach from=$tipos item=tipo}
+                                    <option value="{$tipo->getTipoAcesso_ID()}" {if $tipo->getTipoAcesso_ID() eq $usuario->getTipoAcesso_ID()} selected='selected' {/if} >{$tipo->getTipoAcesso_Tipo()}</option> 
+                                    {/foreach}
+                                </select>                                
+                            </div>
+                            <div class="well" id="senha" style="border:1px;color:#4D9DA8;border-style:solid;">
+                                <p><span class="label">Senha</span></p>
+                                <div class="controls" style="margin-bottom:10px;">                            
+                                    {if $Save eq 'a'} 
+                                        <label for="senhaUsuario" class="control-label" style="font-size:13px;">Senha:</label> 
+                                        <input type="password" id="senhaUsuario" name="senhaUsuario" class="input-xlsmall arrendondaInputSelect" value="">                            
+                                    {/if}
+                                </div>
+                                <div class="controls" style="margin-bottom:10px;">  
+                                   <label for="novasenhaUsuario" class="control-label" style="font-size:13px;">Nova Senha:</label> 
+                                   <input type="password" id="novasenhaUsuario" name="novasenhaUsuario" onkeyup="testasenha()" class="input-xsmall arrendondaInputSelect" value="">
+                                </div>
+                                <div class="controls" style="margin-bottom:10px;"> 
+                                   <label for="confsenhaUsuario" class="control-label" style="font-size:13px;">Confirmação:</label> 
+                                   <input type="password" id="confsenhaUsuario" name="confsenhaUsuario" class="input-xsmall arrendondaInputSelect" onkeyup="testasenha()" value=""><SPAN id="status"></SPAN>
+                                </div>
+                            </div>
+                            <!-- Filtro por funcionário -->
+                            <div class="well" id="func" style="border:1px;color:#4D9DA8;border-style:solid;" >  
+                                <p><span class="label">Funcionario</span></p> 
+                                <!--                                
+                                <label for="idFuncionario" class="control-label" style="font-size:13px;">Funcionario:</label>
+                                <select id="idFuncionario" name="idFuncionario" class="arrendondaInputSelect">
+                                   <option value=""></option>
+                                    {foreach from=$funcionarios item=funcionario}
+                                    <option value="{$funcionario->getFuncionario_ID()}" {if $funcionario->getFuncionario_ID() eq $usuario->getFuncionario_ID()} selected='selected' {/if} >{$funcionario->getFuncionario_Nome()}</option> 
+                                    {/foreach}
+                                </select>    -->
+
+                                <div class="grid">          
+                                      <table class="table table-striped table-bordered table-condensed"> 
+                                          <tr>
+                                              <th>Nome</th>
+                                              <th>Matricula</th>
+                                              <th>Cargo</th>  
+                                              <th class=tdBotao>Selecionar</th>                            
+                                          </tr> 
+                                          
+                                          {foreach from=$funcionarios item=funcionario }
+                                          
+                                          <tr>
+                                              <td>{$funcionario->getFuncionario_Nome()}</td>
+                                              <td>{$funcionario->getFuncionario_Matricula()}</td>
+                                              <td>{$funcionario->getCargo_Descricao()}</td> 
+                                              <td>
+                                                  <label class="radio">
+                                                    <input type="radio" name="idFuncionario" value="{$funcionario->getFuncionario_ID()}">
+                                                  </label>
+                                              </td>          
+                                          </tr>
+                                          
+                                          {/foreach}
+                                      </table>
+                                </div>
+                                                                      
+                            </div>
+                        </div>
+                        <div>
+                            <input class="btn btn-primary" type="button" onclick="return enviar();" value="{$nomeBotao}"/>
+                        </div>
+                    </form>
+                    <button class="btn" onclick="return abreListagem();">Voltar para Listagem</button>
+                </fieldset>
+            </div>
+         </div>
+       </div>
+    </body>
+</html>

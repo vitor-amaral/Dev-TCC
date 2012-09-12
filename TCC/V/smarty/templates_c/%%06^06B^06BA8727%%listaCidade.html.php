@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-09-03 03:15:35
+<?php /* Smarty version 2.6.26, created on 2012-09-12 02:06:39
          compiled from listaCidade.html */ ?>
  <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.html", 'smarty_include_vars' => array()));
@@ -58,7 +58,7 @@ unset($_smarty_tpl_vars);
                                 </div>
                            </form>
                     </fieldset>
-                    <button onclick="return abreNovaCidade();" class="btn">Nova Cidade</button>
+                    <button onclick="return abreNovaCidade();" class="btn btn-info">Nova Cidade</button>
                     <div class="grid">                        
                           <table class="table table-striped table-bordered table-condensed"> 
                               <tr>
@@ -85,7 +85,7 @@ unset($_smarty_tpl_vars);
                                   <td>
                                       <a href="#" onclick="return excluirCidade('<?php echo $this->_tpl_vars['cidade']->getCidade_ID(); ?>
 ');" alt="Clique para Excluir esta Cidade">
-                                          <i class="icon-trash"></i>
+                                          <i class="icon-trash"></i>                                          
                                       </a>
                                   </td>
                               </tr>

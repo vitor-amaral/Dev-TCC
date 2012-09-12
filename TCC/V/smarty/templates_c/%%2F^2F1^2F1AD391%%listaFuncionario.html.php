@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-09-06 03:38:49
+<?php /* Smarty version 2.6.26, created on 2012-09-08 21:54:28
          compiled from listaFuncionario.html */ ?>
  <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.html", 'smarty_include_vars' => array()));
@@ -76,14 +76,13 @@ unset($_smarty_tpl_vars);
                                 </div>
                            </form>
                     </fieldset>
-                    <button onclick="return abreNovo();" class="btn">Novo Funcionario</button>
+                    <button onclick="return abreNovo();" class="btn btn-info">Novo Funcionario</button>
                     <div class="grid">                        
                           <table class="table table-striped table-bordered table-condensed"> 
                               <tr>
                                   <th>Nome</th>
                                   <th>Matricula</th>
-                                  <th>Cargo</th>
-                                  <th>id</th>                                   
+                                  <th>Cargo</th>                              
                                   <th class=tdBotao>Editar</th>
                                   <th class=tdBotao>Excluir</th>
                               </tr> 
@@ -98,9 +97,7 @@ unset($_smarty_tpl_vars);
                                   <td><?php echo $this->_tpl_vars['funcionario']->getFuncionario_Matricula(); ?>
 </td>
                                   <td><?php echo $this->_tpl_vars['funcionario']->getCargo_Descricao(); ?>
-</td>            
-                                  <TD><?php echo $this->_tpl_vars['funcionario']->getFuncionario_ID(); ?>
-</TD>              
+</td>           
                                   <td><a href="#" onclick="return editar('<?php echo $this->_tpl_vars['funcionario']->getFuncionario_ID(); ?>
 ');"  alt="Clique para Editar este Funcionario"><i class="icon-edit"></i></a></td>                                  
                                   <td><a href="#" onclick="return excluir('<?php echo $this->_tpl_vars['funcionario']->getFuncionario_ID(); ?>

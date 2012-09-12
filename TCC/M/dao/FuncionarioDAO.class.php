@@ -51,10 +51,19 @@ class FuncionarioDAO {
     }
     
     function getFuncionarios(){
-        $sql = "select func_id, func_nome, func_matricula, car_id from funcionario order by func_nome, func_matricula, car_id";
-
+        $sql ="
+                SELECT 
+                    f.func_id 
+                    , f.func_nome
+                    , f.func_matricula
+                    , f.car_id 
+                    , c.car_descricao
+                 FROM funcionario f       
+                 INNER JOIN cargo c ON f.car_id = c.car_id
+                 order by f.func_nome, f.func_matricula, c.car_descricao";
+                 
         $funcionarios = array();
-;  
+  
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {
             $funcionario = new Funcionario;
@@ -62,6 +71,8 @@ class FuncionarioDAO {
             $funcionario->setFuncionario_Nome($rows['func_nome']);
             $funcionario->setFuncionario_Matricula($rows['func_matricula']);  
             $funcionario->setCargo_ID($rows['car_id']); 
+            $funcionario->setCargo_Descricao($rows['car_descricao']);                         
+            
 
             $funcionarios[] = $funcionario;
         }
