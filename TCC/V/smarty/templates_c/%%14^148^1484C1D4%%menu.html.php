@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-09-08 21:49:09
+<?php /* Smarty version 2.6.26, created on 2012-09-13 01:29:11
          compiled from menu.html */ ?>
 <!doctype html>
 <!--[if lt IE 7 ]> <html class="no-js ie6" dir="ltr" lang="en-US"> <![endif]-->
@@ -77,7 +77,8 @@
                                         <li><a href="listaAdvogados.php">Advogados</a></li>  -->
                                         <li><a href="listaCidades.php">Cidades</a></li>
                                         <li><a href="listaFuncionarios.php">Funcionarios</a></li>
-                                        <li><a href="listaUsuarios.php">Usuarios</a></li>                                        
+                                        <li><a href="listaUsuarios.php">Usuarios</a></li>  
+                                        <li><a href="listaClientes.php">Clientes</a></li>                                        
                                         <!--<li><a href="#">Ã?ndices</a></li>       --> 
                                         
                                         <li class="divider"></li>

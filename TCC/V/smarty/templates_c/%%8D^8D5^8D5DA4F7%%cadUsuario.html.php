@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-09-12 02:00:12
+<?php /* Smarty version 2.6.26, created on 2012-09-13 01:29:11
          compiled from cadUsuario.html */ ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.html", 'smarty_include_vars' => array()));
