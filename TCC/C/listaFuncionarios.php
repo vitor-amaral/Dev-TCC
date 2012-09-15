@@ -38,7 +38,7 @@ $funcionarios = $DAO->getFuncionarios_Filtro($nome,$matricula,$cargo);
 $total = count($funcionarios);
 $cargos = $cargoDAO->getCargos(); 
     
-       
+$smarty->assign("ret",$_REQUEST['ret']); 
 $smarty->assign("totalFuncionarios",$total);
 $smarty->assign("funcionarios",$funcionarios);
 $smarty->assign("cargos",$cargos); 

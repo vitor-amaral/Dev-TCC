@@ -12,9 +12,11 @@ $DAO = new ClienteDAO($con->getConexao());
 if(isset($_REQUEST['idCliente'])){
     
     $Exc = $DAO->getCliente($_REQUEST['idCliente']);
-    $DAO->delete($Exc);
+    $retorno = $DAO->delete($Exc);
+    
+    if($retorno) $ret = "se";  else $ret="ee";
 }
 
 
-header("location:listaClientes.php");
+header("location:listaClientes.php?ret=".$ret);
 ?>

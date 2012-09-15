@@ -1,0 +1,97 @@
+{include file="menu.html"}       
+<html>
+    {literal}
+    <head>
+        <title>Cliente</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/processo.css">
+        
+        <script type="text/javascript" language="JavaScript" src="../V/js/jquery.js"></script>
+        <script type="text/javascript" language="JavaScript" src="../V/js/jquery.maskedinput.js"></script>
+                
+        <script type="text/javascript">
+            $(function(){
+                $("#dtNasc").mask("99/99/9999");
+            });
+            
+            function abreListagem(){
+                window.location.href="listaClientes.php";
+            }
+        </script>
+    </head>
+    {/literal}
+    <body>
+        <div id="conteudo">
+            <div class="container1">
+                <div class="asdf">
+                    {if $ret eq 'sa'}
+                            <span class="label label-success">SUCESSO</span>
+                            <span> O Cliente foi Alterado com Sucesso!</span>
+                     {/if}
+                     {if $ret eq 's'}
+                            <span class="label label-success">SUCESSO</span>
+                            <span> O Cliente foi Cadastrado com Sucesso!</span>
+                     {/if}
+                <fieldset id="tabelaCadastro">
+                    <legend id="textoNavegacao">&nbsp;&nbsp;Cliente :: {$msg}</legend>
+                    <form class="well form-inline" name="formCliente" id="formCliente" method="POST" action="salvaCliente.php">
+                        <div class="control-group">
+                            <input type="hidden" name="Save" id="Save" value="{$Save}" />
+                            <input type="hidden" name="idCliente" id="idCliente" value="{$cliente->getCli_id()}" />
+                            
+                            <div class="controls" style="margin-bottom:10px;">
+                                <label for="nomeCliente" class="control-label" style="font-size:13px;">Nome:</label>
+                                <input type="text" id="nomeCliente" name="nomeCliente" class="input-xlarge arrendondaInputSelect" value="{$cliente->getCli_nome()}">      
+ 
+                                <label for="referenciaCliente" class="control-label" style="font-size:13px;">Referência:</label>
+                                <input type="text" id="referenciaCliente" name="referenciaCliente" class="input-xlarge arrendondaInputSelect" placeholder="Como lembrar do cliente..." value="{$cliente->getCli_referencia()}"> 
+                            </div> 
+                                                        
+                            <div class="controls" style="margin-bottom:10px;">                                 
+                                <label for="dtNasc" class="control-label" style="font-size:13px;">Data Nascimento:</label>
+                                <input type="text" id="dtNasc" name="dtNasc" class="input-small arrendondaInputSelect" value="{$cliente->getCli_dtNasc()}">
+
+                                <label for="apelido" class="control-label" style="font-size:13px;">Apelido:</label>
+                                <input type="text" id="apelido" name="apelido"  class="input-medium arrendondaInputSelect" value="{$cliente->getCli_apelido()}" />
+                                                                                
+                                <br/><br/>
+                                <label for="email" class="control-label" style="font-size:13px;">Email:</label>
+                                <input type="text" name="email" id="email" class="input-xxlarge arrendondaInputSelect" value="{$cliente->getCli_email()}" />
+                                                                                
+                                <br/><br/> 
+                                <label for="estCivil" class="control-label" style="font-size:13px;">Relacionamento:</label>
+                                <select id="estCivil" name="estCivil" class="arrendondaInputSelect">
+                                   <option value=""></option>
+                                   <option value="1" {if $cliente->getCli_estCivil() eq 1} selected='selected' {/if} >Solteiro</option> 
+                                   <option value="2" {if $cliente->getCli_estCivil() eq 2} selected='selected' {/if} >Casado/União Estável</option>
+                                   <option value="3" {if $cliente->getCli_estCivil() eq 3} selected='selected' {/if} >Divorciado</option>
+                                   <option value="4" {if $cliente->getCli_estCivil() eq 4} selected='selected' {/if} >Namorando</option>
+                                   <option value="5" {if $cliente->getCli_estCivil() eq 5} selected='selected' {/if} >Viúvo</option>
+                                </select>
+                                
+                                <label for="idIndicador" class="control-label" style="font-size:13px;">Indicador:</label>
+                                <select id="idIndicador" name="idIndicador" class="arrendondaInputSelect" >
+                                   <option value=""></option>
+                                    {foreach from=$indicadores item=indicador}
+                                    <option value="{$indicador->getCli_id()}" {if $indicador->getCli_id() eq $cliente->getCli_id_indicador()} selected='selected' {/if} >
+                                    {$indicador->getCli_nome()} -- {$indicador->getCli_referencia()}  
+                                    </option> 
+                                    {/foreach}
+                                </select> 
+
+                            </div>
+                            
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" type="submit">{$nomeBotao}</button>     
+                        </div>
+                    </form>
+                    <button class="btn" onclick="return abreListagem();">Voltar para Listagem</button>
+                </fieldset>
+            </div>
+         </div>
+       </div>
+    </body>
+</html>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-09-12 02:06:39
+<?php /* Smarty version 2.6.26, created on 2012-09-15 22:45:53
          compiled from listaCidade.html */ ?>
  <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.html", 'smarty_include_vars' => array()));
@@ -13,7 +13,15 @@ unset($_smarty_tpl_vars);
         <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../V/css/processo.css">
+        
+        <script type="text/javascript" language="JavaScript" src="../V/js/bootstrap.js"></script>
+        
         <script type="text/javascript" >
+
+            $(function(){
+                $("[rel=tooltip]").tooltip();
+            });
+                    
            function abreNovaCidade(){
                window.location.href="cadCidade.php";
            }
@@ -42,6 +50,15 @@ unset($_smarty_tpl_vars);
     <body>
         <div id="conteudo" <?php if ($this->_tpl_vars['totalCidades'] > 10): ?> style='height:100%;' <?php endif; ?>>
             <div class="container1">
+                    <?php if ($this->_tpl_vars['ret'] == 'se'): ?>
+                            <span class="label label-success">SUCESSO</span>
+                            <span> A Cidade foi Excluido com Sucesso!</span>
+                    <?php endif; ?>
+       
+                    <?php if ($this->_tpl_vars['ret'] == 'ee'): ?>
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel excluir.</span>
+                    <?php endif; ?>              
                     <fieldset id="tabelaCadastro">
                         <legend id="textoNavegacao">&nbsp;&nbsp;Cidades :: Listagem</legend>
                         <form class="well form-search" name="formCidade" id="formCidade" method="POST" action="listaCidades.php">
@@ -59,6 +76,7 @@ unset($_smarty_tpl_vars);
                            </form>
                     </fieldset>
                     <button onclick="return abreNovaCidade();" class="btn btn-info">Nova Cidade</button>
+                    
                     <div class="grid">                        
                           <table class="table table-striped table-bordered table-condensed"> 
                               <tr>
@@ -75,16 +93,14 @@ unset($_smarty_tpl_vars);
                                   <td><?php echo $this->_tpl_vars['cidade']->getCidade_Nome(); ?>
 </td>
                                   <td>
-                                    <a href="#" onclick="return editarCidade(<?php echo $this->_tpl_vars['cidade']->getCidade_ID(); ?>
-);"  alt="Clique para Editar esta Cidade"> 
-                                      <!--<a href="cadCidade.php?idCidade=<?php echo $this->_tpl_vars['cidade']->getCidade_ID(); ?>
-" alt="Clique para Editar esta Cidade">     -->                                       
+                                    <a href="#" rel="tooltip" onclick="return editarCidade(<?php echo $this->_tpl_vars['cidade']->getCidade_ID(); ?>
+);"  title="Clique para Editar esta Cidade">
                                           <i class="icon-edit"></i>
                                       </a>
                                   </td>
                                   <td>
-                                      <a href="#" onclick="return excluirCidade('<?php echo $this->_tpl_vars['cidade']->getCidade_ID(); ?>
-');" alt="Clique para Excluir esta Cidade">
+                                      <a href="#" rel="tooltip" onclick="return excluirCidade('<?php echo $this->_tpl_vars['cidade']->getCidade_ID(); ?>
+');" title="Clique para Excluir esta Cidade">
                                           <i class="icon-trash"></i>                                          
                                       </a>
                                   </td>

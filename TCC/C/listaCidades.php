@@ -23,7 +23,8 @@ if($nome != ""){
 }
 
 $totalCidades = count($cidades);    
-       
+
+$smarty->assign("ret",$_REQUEST['ret']);       
 $smarty->assign("totalCidades",$totalCidades);
 $smarty->assign("cidades",$cidades);
 $smarty->display("listaCidade.html");

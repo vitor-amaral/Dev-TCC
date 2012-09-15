@@ -7,7 +7,15 @@
         <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../V/css/processo.css">
+        
+        <script type="text/javascript" language="JavaScript" src="../V/js/bootstrap.js"></script>
+        
         <script type="text/javascript" >
+
+            $(function(){
+                $("[rel=tooltip]").tooltip();
+            });
+                    
            function abreNovo(){
                window.location.href="cadUsuario.php";
            }
@@ -36,6 +44,15 @@
     <body>
         <div id="conteudo" {if $totalUsuarios > 10} style='height:100%;' {/if}>
             <div class="container1">
+                    {if $ret eq 'se'}
+                            <span class="label label-success">SUCESSO</span>
+                            <span> O Usuário foi Excluido com Sucesso!</span>
+                    {/if}
+       
+                    {if $ret eq 'ee'}
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel excluir. </span>
+                    {/if}              
                     <fieldset id="tabelaCadastro">
                         <legend id="textoNavegacao">&nbsp;&nbsp;Usuarios :: Listagem</legend>
                         <form class="well form-search" name="formUsuario" id="formUsuario" method="POST" action="listaUsuarios.php">
@@ -86,8 +103,8 @@
                                   <td>{$usuario->getUsuario_Login()}</td>
                                   <td>{$usuario->getTipoAcesso_Tipo()}</td>
                                   <td>{$usuario->getFuncionario_Nome()}</td>           
-                                  <td><a href="#" onclick="return editar('{$usuario->getUsuario_ID()}');"  alt="Clique para Editar este Usuario"><i class="icon-edit"></i></a></td>                                  
-                                  <td><a href="#" onclick="return excluir('{$usuario->getUsuario_ID()}');" alt="Clique para Excluir este Usuario"><i class="icon-trash"></i></a></td>
+                                  <td><a href="#" rel="tooltip" onclick="return editar('{$usuario->getUsuario_ID()}');"  title="Clique para Editar este Usuario"><i class="icon-edit"></i></a></td>                                  
+                                  <td><a href="#" rel="tooltip" onclick="return excluir('{$usuario->getUsuario_ID()}');" title="Clique para Excluir este Usuario"><i class="icon-trash"></i></a></td>
                               </tr>
                               
                               {/foreach}

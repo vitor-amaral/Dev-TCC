@@ -42,6 +42,7 @@ $total = count($usuarios);
 $tipos = $tipoacessoDAO->getTipoAcesso_all();
 $funcionarios = $funcionarioDAO->getFuncionarios(); 
 
+$smarty->assign("ret",$_REQUEST['ret']); 
 $smarty->assign("totalUsuarios",$total);
 $smarty->assign("usuarios",$usuarios); 
 $smarty->assign("funcionarios",$funcionarios);

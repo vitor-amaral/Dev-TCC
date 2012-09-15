@@ -12,9 +12,12 @@ $DAO = new FuncionarioDAO($con->getConexao());
 if(isset($_REQUEST['idFuncionario'])){
     
     $Exc = $DAO->getFuncionario($_REQUEST['idFuncionario']);
-    $DAO->delete($Exc);
+    $retorno = $DAO->delete($Exc);
+    
+    if($retorno){ $ret = "se"; } else{ $ret="ee";}
+
 }
 
 
-header("location:listaFuncionarios.php");
+header("location:listaFuncionarios.php?ret=".$ret);
 ?>

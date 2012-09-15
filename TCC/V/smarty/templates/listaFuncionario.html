@@ -7,7 +7,15 @@
         <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../V/css/processo.css">
+        
+        <script type="text/javascript" language="JavaScript" src="../V/js/bootstrap.js"></script>
+        
         <script type="text/javascript" >
+        
+            $(function(){
+                $("[rel=tooltip]").tooltip();
+            });
+            
            function abreNovo(){
                window.location.href="cadFuncionario.php";
            }
@@ -36,6 +44,15 @@
     <body>
         <div id="conteudo" {if $totalFuncionarios > 10} style='height:100%;' {/if}>
             <div class="container1">
+                    {if $ret eq 'se'}
+                            <span class="label label-success">SUCESSO</span>
+                            <span> O Funcionario foi Excluido com Sucesso!</span>
+                    {/if}
+       
+                    {if $ret eq 'ee'}
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel excluir.</span>
+                    {/if}              
                     <fieldset id="tabelaCadastro">
                         <legend id="textoNavegacao">&nbsp;&nbsp;Funcionarios :: Listagem</legend>
                         <form class="well form-search" name="formFuncionario" id="formFuncionario" method="POST" action="listaFuncionarios.php">
@@ -80,8 +97,8 @@
                                   <td>{$funcionario->getFuncionario_Nome()}</td>
                                   <td>{$funcionario->getFuncionario_Matricula()}</td>
                                   <td>{$funcionario->getCargo_Descricao()}</td>           
-                                  <td><a href="#" onclick="return editar('{$funcionario->getFuncionario_ID()}');"  alt="Clique para Editar este Funcionario"><i class="icon-edit"></i></a></td>                                  
-                                  <td><a href="#" onclick="return excluir('{$funcionario->getFuncionario_ID()}');" alt="Clique para Excluir este Funcionario"><i class="icon-trash"></i></a></td>
+                                  <td><a href="#" rel="tooltip" onclick="return editar('{$funcionario->getFuncionario_ID()}');"  title="Clique para Editar este Funcionario"><i class="icon-edit"></i></a></td>                                  
+                                  <td><a href="#" rel="tooltip" onclick="return excluir('{$funcionario->getFuncionario_ID()}');" title="Clique para Excluir este Funcionario"><i class="icon-trash"></i></a></td>
                               </tr>
                               
                               {/foreach}

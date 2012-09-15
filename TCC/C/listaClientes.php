@@ -33,15 +33,52 @@ if(isset($_REQUEST['idusuario'])){
 }else{
    $usuario = "";
 }
-      
+   
+if(isset($_REQUEST['idIndicador'])){
+    $indicador = $_REQUEST['idIndicador'];
+    $smarty->assign("idIndicador",$indicador);
+}else{
+   $indicador = "";
+}
+  
+if(isset($_REQUEST['dtNasc'])){
+    $nascimento = $_REQUEST['dtNasc'];
+    $smarty->assign("dtNasc",$nascimento);
+}else{
+   $nascimento = "";
+}
 
-$clientes = $DAO->getClientes_Filtro($nome,$referencia,'', '',$usuario,'','','');
+if(isset($_REQUEST['apelido'])){
+    $apelido = $_REQUEST['apelido'];
+    $smarty->assign("apelido",$apelido);
+}else{
+   $apelido = "";
+}
+
+if(isset($_REQUEST['email'])){
+    $email = $_REQUEST['email'];
+    $smarty->assign("email",$email);
+}else{
+   $email = "";
+}
+
+if(isset($_REQUEST['estCivil'])){
+    $estCivil = $_REQUEST['estCivil'];
+    $smarty->assign("estCivil",$estCivil);
+}else{
+   $estCivil = "";
+}
+
+$clientes = $DAO->getClientes_Filtro($nome,$referencia,$nascimento, $email,$usuario,$estCivil,$apelido,$indicador);
+$indicadores = $DAO->getClientes();
 
 $total = count($clientes);
 $usuarios = $usuarioDAO->getUsuarios(); 
   
-       
+$smarty->assign("ret",$_REQUEST['ret']); 
 $smarty->assign("totalClientes",$total);
 $smarty->assign("clientes",$clientes);
+$smarty->assign("indicadores",$indicadores); 
+                                                    
 //$smarty->assign("usuarios",$usuarios); 
 $smarty->display("listaCliente.html");

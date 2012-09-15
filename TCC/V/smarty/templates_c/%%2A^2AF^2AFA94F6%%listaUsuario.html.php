@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-09-10 01:47:00
+<?php /* Smarty version 2.6.26, created on 2012-09-15 22:45:56
          compiled from listaUsuario.html */ ?>
  <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.html", 'smarty_include_vars' => array()));
@@ -13,7 +13,15 @@ unset($_smarty_tpl_vars);
         <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../V/css/processo.css">
+        
+        <script type="text/javascript" language="JavaScript" src="../V/js/bootstrap.js"></script>
+        
         <script type="text/javascript" >
+
+            $(function(){
+                $("[rel=tooltip]").tooltip();
+            });
+                    
            function abreNovo(){
                window.location.href="cadUsuario.php";
            }
@@ -43,6 +51,15 @@ unset($_smarty_tpl_vars);
     <body>
         <div id="conteudo" <?php if ($this->_tpl_vars['totalUsuarios'] > 10): ?> style='height:100%;' <?php endif; ?>>
             <div class="container1">
+                    <?php if ($this->_tpl_vars['ret'] == 'se'): ?>
+                            <span class="label label-success">SUCESSO</span>
+                            <span> O Usuário foi Excluido com Sucesso!</span>
+                    <?php endif; ?>
+       
+                    <?php if ($this->_tpl_vars['ret'] == 'ee'): ?>
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel excluir. </span>
+                    <?php endif; ?>              
                     <fieldset id="tabelaCadastro">
                         <legend id="textoNavegacao">&nbsp;&nbsp;Usuarios :: Listagem</legend>
                         <form class="well form-search" name="formUsuario" id="formUsuario" method="POST" action="listaUsuarios.php">
@@ -107,10 +124,10 @@ unset($_smarty_tpl_vars);
 </td>
                                   <td><?php echo $this->_tpl_vars['usuario']->getFuncionario_Nome(); ?>
 </td>           
-                                  <td><a href="#" onclick="return editar('<?php echo $this->_tpl_vars['usuario']->getUsuario_ID(); ?>
-');"  alt="Clique para Editar este Usuario"><i class="icon-edit"></i></a></td>                                  
-                                  <td><a href="#" onclick="return excluir('<?php echo $this->_tpl_vars['usuario']->getUsuario_ID(); ?>
-');" alt="Clique para Excluir este Usuario"><i class="icon-trash"></i></a></td>
+                                  <td><a href="#" rel="tooltip" onclick="return editar('<?php echo $this->_tpl_vars['usuario']->getUsuario_ID(); ?>
+');"  title="Clique para Editar este Usuario"><i class="icon-edit"></i></a></td>                                  
+                                  <td><a href="#" rel="tooltip" onclick="return excluir('<?php echo $this->_tpl_vars['usuario']->getUsuario_ID(); ?>
+');" title="Clique para Excluir este Usuario"><i class="icon-trash"></i></a></td>
                               </tr>
                               
                               <?php endforeach; endif; unset($_from); ?>

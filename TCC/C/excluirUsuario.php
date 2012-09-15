@@ -12,9 +12,10 @@ $DAO = new UsuarioDAO($con->getConexao());
 if(isset($_REQUEST['idUsuario'])){
     
     $Exc = $DAO->getUsuario($_REQUEST['idUsuario']);
-    $DAO->delete($Exc);
-}
+    $retorno = $DAO->delete($Exc);
+    
+    if($retorno) $ret = "se";  else $ret="ee";
+}        
 
-
-header("location:listaUsuarios.php");
+header("location:listaUsuarios.php?ret=".$ret);
 ?>

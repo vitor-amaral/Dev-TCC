@@ -12,9 +12,11 @@ $DAO = new CidadeDAO($con->getConexao());
 if(isset($_REQUEST['idCidade'])){
     
     $Exc = $DAO->getCidade($_REQUEST['idCidade']);
-    $DAO->delete($Exc);
+    $retorno = $DAO->delete($Exc);
+    
+    if($retorno) $ret = "se";  else $ret="ee";
 }
 
 
-header("location:listaCidades.php");
+header("location:listaCidades.php?ret=".$ret);
 ?>
