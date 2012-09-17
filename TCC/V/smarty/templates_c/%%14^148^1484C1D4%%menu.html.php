@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-09-13 01:29:11
+<?php /* Smarty version 2.6.26, created on 2012-09-17 06:22:05
          compiled from menu.html */ ?>
 <!doctype html>
 <!--[if lt IE 7 ]> <html class="no-js ie6" dir="ltr" lang="en-US"> <![endif]-->
@@ -25,18 +25,20 @@
     '; ?>
 
     </head>
-     <?php if ($this->_tpl_vars['pagina'] != 'index.php'): ?>
-         <div id="topo">
-            <div class="container1">
-                <h1><a href="#">Logo</a></h1>
-                <h2>Sistema de Gerenciamento de Perfil de Clientes</h2>
-            </div>
-         </div>
-     <?php endif; ?>
+     
+     <div id="topo">
+        <div class="container1">
+            <h1><a href="#">Logo</a></h1>
+            <h2>Sistema de Gerenciamento de Perfil de Clientes</h2>
+        </div>
+     </div>
+     
     <body class="home blog">
         <div id="header">
+        
             <div class="navbar navbar-fixed-top">
                 <div class="navbar-inner">
+                
                     <div class="container">
                         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                             <span class="icon-bar"></span>
@@ -44,14 +46,31 @@
                             <span class="icon-bar"></span>
                         </a>
                         <div class="nav-collapse">
-                            <ul id="menu-menu" class="nav"><li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="./index.php">Home</a></li>
-<!--                                <li id="menu-item-7" class="menu-item menu-item-type-custom menu-item-object-custom dropdown menu-item-7"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Réu<b class="caret"></b></a>
+
+                            <ul id="menu-menu" class="nav">
+                                <!--Links da area aberta -->
+                                <li id="menu-item-1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="home.php">Home</a></li>
+                            </ul>
+                            
+                            
+                            <?php if ($this->_tpl_vars['pagina'] != 'index.php'): ?>
+                            <!--Links da area fechada -->  
+                        <ul id="menu-menu" class="nav"> 
+                          <li id="menu-item-2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="listaFuncionarios.php">Funcionarios</a></li>
+                          <li id="menu-item-3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="listaUsuarios.php">Usuarios</a></li>
+                          <li id="menu-item-4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="listaClientes.php">Clientes</a></li>
+
+<!--                                <li id="menu-item-7" class="menu-item menu-item-type-custom menu-item-object-custom dropdown menu-item-7">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Réu<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="cadAutor.php?tipoPessoa=R">Cadastrar</a></li>
-                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="listaAutor.php?tipoPessoa=R">Consultar</a></li>
+                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8">
+                                            <a href="cadAutor.php?tipoPessoa=R">Cadastrar</a></li>
+                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8">
+                                            <a href="listaAutor.php?tipoPessoa=R">Consultar</a></li>
                                     </ul>
                                 </li>
-                                <li id="menu-item-7" class="menu-item menu-item-type-custom menu-item-object-custom dropdown menu-item-7"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Autor<b class="caret"></b></a>
+                                <li id="menu-item-7" class="menu-item menu-item-type-custom menu-item-object-custom dropdown menu-item-7">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Autor<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
                                         <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="cadAutor.php?tipoPessoa=A">Cadastrar</a></li>
                                         <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="listaAutor.php?tipoPessoa=A">Consultar</a></li>
@@ -63,22 +82,19 @@
                                         <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="listaProcessos.php">Consultar</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Pendências</a></li>  -->
-                            </ul>            
+                                <li><a href="#">Pendências</a></li> --> 
 
+                            </ul>           
+                            
                             <ul class="nav pull-right">
                                 <li class="divider-vertical"></li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administração<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-<!--                                    <li><a href="listaTipos.php">Tipos</a></li>
-                                        <li><a href="listaComarcas.php">Comarcas</a></li>
-                                        <li><a href="listaVaras.php">Varas</a></li>
-                                        <li><a href="listaAdvogados.php">Advogados</a></li>  -->
                                         <li><a href="listaCidades.php">Cidades</a></li>
-                                        <li><a href="listaFuncionarios.php">Funcionarios</a></li>
+<!--                                        <li><a href="listaFuncionarios.php">Funcionarios</a></li>
                                         <li><a href="listaUsuarios.php">Usuarios</a></li>  
-                                        <li><a href="listaClientes.php">Clientes</a></li>                                        
+                                        <li><a href="listaClientes.php">Clientes</a></li>  -->                                      
                                         <!--<li><a href="#">�?ndices</a></li>       --> 
                                         
                                         <li class="divider"></li>
@@ -87,11 +103,15 @@
                                     </ul>
                                 </li>
                                 <li><a href="#">Contato</a></li>
+                                <li><a href="index.php">Sair</a></li>
                             </ul>
+                            <?php endif; ?> 
                         </div>
                     </div>
+                 
                 </div>
             </div>           
+       
         </div><!-- end of #header -->
     </body>
 </html>

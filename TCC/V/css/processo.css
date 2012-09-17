@@ -80,7 +80,7 @@
 .container1 {width:950px; margin:0 auto;height:100%;}
 #topo {background:url('../img/bgTopo.png') top left repeat-x #f2f2f2; height:95px;margin-top:42px;}
 h1 {float:left; margin-top:3px;}
-h1 a {background:url('../img/logoSistema.png') top left no-repeat; width: 168px; height: 62px; display:block; text-indent:-9999px;}
+h1 a {background:url('../img/logoSistema.png') top left no-repeat; width: 75px; height: 75px; display:block; text-indent:-9999px;}
 h2 { float:left; margin-left:20px; border-left: #84c1db solid 2px; color:#84c1db; font-family:Tahoma, Geneva, sans-serif; font-size:16px; padding-left:20px; margin-top:30px; font-weight:normal; font-style:italic}
 #conteudo {background:#f2f2f2;height:535px;}
 span.lisFormIcon { margin:0 -13px 0 2px;}
