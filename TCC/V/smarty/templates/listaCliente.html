@@ -113,7 +113,7 @@
                                                    <option value=""></option>
                                                     {foreach from=$indicadores item=indicador}
                                                     <option value="{$indicador->getCli_id()}" {if $indicador->getCli_id() eq $idIndicador} selected='selected' {/if} >
-                                                    {$indicador->getCli_nome()} -- {$indicador->getCli_referencia()} 
+                                                    {$indicador->getCli_nome()} -- {$indicador->getCli_referencia()}  
                                                     </option> 
                                                     {/foreach}
                                                 </select>                                                    

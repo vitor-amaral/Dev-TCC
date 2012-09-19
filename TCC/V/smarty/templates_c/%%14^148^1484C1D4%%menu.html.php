@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-09-17 06:22:05
+<?php /* Smarty version 2.6.26, created on 2012-09-18 18:03:49
          compiled from menu.html */ ?>
 <!doctype html>
 <!--[if lt IE 7 ]> <html class="no-js ie6" dir="ltr" lang="en-US"> <![endif]-->
@@ -29,7 +29,8 @@
      <div id="topo">
         <div class="container1">
             <h1><a href="#">Logo</a></h1>
-            <h2>Sistema de Gerenciamento de Perfil de Clientes</h2>
+            <h2>Gar&ccedil;om Nota 10</h2>                                   
+            <h3>Sistema de Gerenciamento de Perfil de Clientes</h3>
         </div>
      </div>
      
@@ -55,35 +56,38 @@
                             
                             <?php if ($this->_tpl_vars['pagina'] != 'index.php'): ?>
                             <!--Links da area fechada -->  
-                        <ul id="menu-menu" class="nav"> 
-                          <li id="menu-item-2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="listaFuncionarios.php">Funcionarios</a></li>
-                          <li id="menu-item-3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="listaUsuarios.php">Usuarios</a></li>
-                          <li id="menu-item-4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="listaClientes.php">Clientes</a></li>
-
-<!--                                <li id="menu-item-7" class="menu-item menu-item-type-custom menu-item-object-custom dropdown menu-item-7">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Réu<b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8">
-                                            <a href="cadAutor.php?tipoPessoa=R">Cadastrar</a></li>
-                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8">
-                                            <a href="listaAutor.php?tipoPessoa=R">Consultar</a></li>
+                            <ul id="menu-menu" class="nav"> 
+                                <li id="menu-item-3" class="menu-item menu-item-type-custom menu-item-object-custom dropdown menu-item-3">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Clientes<b class="caret"></b></a>
+                                    <ul class="dropdown-menu"> 
+                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="listaClientes.php">Gerenciar</a></li> 
+                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="#">Frequencia</a></li>
+                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="#">Pedidos</a></li>
                                     </ul>
                                 </li>
-                                <li id="menu-item-7" class="menu-item menu-item-type-custom menu-item-object-custom dropdown menu-item-7">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Autor<b class="caret"></b></a>
+                                                                    
+                                <li id="menu-item-2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="listaEventos.php">Eventos</a></li>
+                                <li id="menu-item-2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="listaMensagens.php">Mensagens</a></li>
+                               
+                                <li id="menu-item-3" class="menu-item menu-item-type-custom menu-item-object-custom dropdown menu-item-3">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reclama&ccedil;&otilde;es<b class="caret"></b></a>
+                                    <ul class="dropdown-menu"> 
+                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="listaReclamacoes.php">Gerenciar</a></li> 
+                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="#">Categoria</a></li>
+                                    </ul>
+                                </li>   
+                                                           
+                              <li id="menu-item-3" class="menu-item menu-item-type-custom menu-item-object-custom dropdown menu-item-3">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Estabelecimento<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="cadAutor.php?tipoPessoa=A">Cadastrar</a></li>
-                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="listaAutor.php?tipoPessoa=A">Consultar</a></li>
+                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="listaFuncionarios.php">Funcionarios</a></li>
+                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="#">Cargos</a></li>
+                                        
+                                        <li class="divider"></li>
+                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="listaProdutos.php">Produtos</a></li>
+                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="listaAmbientes.php">Ambientes</a></li>                                                                                
                                     </ul>
                                 </li>
-                                <li id="menu-item-7" class="menu-item menu-item-type-custom menu-item-object-custom dropdown menu-item-7"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Processo<b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="cadProcesso.php">Cadastrar</a></li>
-                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="listaProcessos.php">Consultar</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Pendências</a></li> --> 
-
                             </ul>           
                             
                             <ul class="nav pull-right">
@@ -91,14 +95,14 @@
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administração<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="listaCidades.php">Cidades</a></li>
-<!--                                        <li><a href="listaFuncionarios.php">Funcionarios</a></li>
-                                        <li><a href="listaUsuarios.php">Usuarios</a></li>  
-                                        <li><a href="listaClientes.php">Clientes</a></li>  -->                                      
-                                        <!--<li><a href="#">�?ndices</a></li>       --> 
+                                        <li><a href="listaUsuarios.php">Usu&aacute;rios</a></li>
+                                        <li><a href="#">Tipo Acesso</a></li>
                                         
                                         <li class="divider"></li>
+                                        <li><a href="#">Prefer&ecirc;ncias</a></li> 
                                         
+                                        <li class="divider"></li>
+                                        <li><a href="listaCidades.php">Cidades</a></li>                                     
                                         <li><a href="#">Parâmetros</a></li>
                                     </ul>
                                 </li>

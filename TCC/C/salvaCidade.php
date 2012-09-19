@@ -23,8 +23,7 @@ if($Save == "s"){
     $nomeBotao = "Salvar";
     $Alterado = new Cidade();      
     
-    if($retorno)
-     $ret = "s";
+    if($retorno) $ret = "sc";  else $ret="ec"; 
 }
 
 if($Save == "a"){
@@ -35,8 +34,7 @@ if($Save == "a"){
     $nomeBotao = "Salvar";
     $Alterado = $DAO->getCidade($cidade->getCidade_ID());
     
-    if($retorno)
-     $ret = "sa";
+    if($retorno) $ret = "sa";  else $ret="ea";
 }
 
 

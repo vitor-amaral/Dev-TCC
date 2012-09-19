@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-09-16 00:13:31
+<?php /* Smarty version 2.6.26, created on 2012-09-18 18:14:00
          compiled from listaCliente.html */ ?>
  <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.html", 'smarty_include_vars' => array()));
@@ -130,7 +130,7 @@ unset($_smarty_tpl_vars);
 " <?php if ($this->_tpl_vars['indicador']->getCli_id() == $this->_tpl_vars['idIndicador']): ?> selected='selected' <?php endif; ?> >
                                                     <?php echo $this->_tpl_vars['indicador']->getCli_nome(); ?>
  -- <?php echo $this->_tpl_vars['indicador']->getCli_referencia(); ?>
- 
+  
                                                     </option> 
                                                     <?php endforeach; endif; unset($_from); ?>
                                                 </select>                                                    

@@ -22,10 +22,18 @@
                             <span class="label label-success">SUCESSO</span>
                             <span> O Funcionario foi Alterado com Sucesso!</span>
                      {/if}
-                     {if $ret eq 's'}
+                     {if $ret eq 'sc'}
                             <span class="label label-success">SUCESSO</span>
                             <span> O Funcionario foi Cadastrado com Sucesso!</span>
                      {/if}
+                    {if $ret eq 'ea'}
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel Alterar.</span>
+                    {/if}                     
+                    {if $ret eq 'ec'}
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel Cadastrar.</span>
+                    {/if}                     
                 <fieldset id="tabelaCadastro">
                     <legend id="textoNavegacao">&nbsp;&nbsp;Funcionario :: {$msg}</legend>
                     <form class="well form-inline" name="formFuncionario" id="formFuncionario" method="POST" action="salvaFuncionario.php">

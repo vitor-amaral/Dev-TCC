@@ -39,8 +39,7 @@ if($Save == "s"){
     $nomeBotao = "Salvar";
     $Alterado = new Cliente();      
     
-    if($retorno)
-     $ret = "s";
+    if($retorno) $ret = "sc";  else $ret="ec";  
 }
 
 if($Save == "a"){
@@ -52,8 +51,7 @@ if($Save == "a"){
     $nomeBotao = "Salvar";
     $Alterado = $DAO->getCliente($cliente->getCli_id());
     
-    if($retorno)
-     $ret = "sa";
+    if($retorno) $ret = "sa";  else $ret="ea";
 }
 
 $indicadores = $DAO->getClientes();

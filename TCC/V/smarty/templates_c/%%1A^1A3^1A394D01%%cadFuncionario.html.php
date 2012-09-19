@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-09-06 03:40:26
+<?php /* Smarty version 2.6.26, created on 2012-09-18 18:51:32
          compiled from cadFuncionario.html */ ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.html", 'smarty_include_vars' => array()));
@@ -29,10 +29,18 @@ unset($_smarty_tpl_vars);
                             <span class="label label-success">SUCESSO</span>
                             <span> O Funcionario foi Alterado com Sucesso!</span>
                      <?php endif; ?>
-                     <?php if ($this->_tpl_vars['ret'] == 's'): ?>
+                     <?php if ($this->_tpl_vars['ret'] == 'sc'): ?>
                             <span class="label label-success">SUCESSO</span>
                             <span> O Funcionario foi Cadastrado com Sucesso!</span>
                      <?php endif; ?>
+                    <?php if ($this->_tpl_vars['ret'] == 'ea'): ?>
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel Alterar.</span>
+                    <?php endif; ?>                     
+                    <?php if ($this->_tpl_vars['ret'] == 'ec'): ?>
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel Cadastrar.</span>
+                    <?php endif; ?>                     
                 <fieldset id="tabelaCadastro">
                     <legend id="textoNavegacao">&nbsp;&nbsp;Funcionario :: <?php echo $this->_tpl_vars['msg']; ?>
 </legend>

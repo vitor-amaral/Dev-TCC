@@ -29,11 +29,19 @@
                     {if $ret eq 'sa'}
                             <span class="label label-success">SUCESSO</span>
                             <span> O Cliente foi Alterado com Sucesso!</span>
-                     {/if}
-                     {if $ret eq 's'}
+                    {/if}
+                    {if $ret eq 'sc'}
                             <span class="label label-success">SUCESSO</span>
                             <span> O Cliente foi Cadastrado com Sucesso!</span>
-                     {/if}
+                    {/if}
+                    {if $ret eq 'ea'}
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel Alterar. Confira se ja existe um cliente com esses dados (Nome e Referencia).</span>
+                    {/if}                     
+                    {if $ret eq 'ec'}
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel Cadastrar. Confira se ja existe um cliente com esses dados (Nome e Referencia).</span>
+                    {/if}                                           
                 <fieldset id="tabelaCadastro">
                     <legend id="textoNavegacao">&nbsp;&nbsp;Cliente :: {$msg}</legend>
                     <form class="well form-inline" name="formCliente" id="formCliente" method="POST" action="salvaCliente.php">

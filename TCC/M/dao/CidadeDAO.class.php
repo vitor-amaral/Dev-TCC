@@ -44,7 +44,7 @@ class CidadeDAO {
         $sql = "select * from cidade order by uf_sigla, cid_nome";
 
         $cidades = array();
-;  
+
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {
             $cidade = new Cidade;
@@ -65,17 +65,14 @@ class CidadeDAO {
             $cidade = new Cidade;
             $cidade->setCidade_ID($rows['cid_id']);
             $cidade->setCidade_Nome($rows['cid_nome']);
-            $cidade->setUf_Sigla($rows['uf_sigla']);  
-            
-           // $cidades[] = $cidade;     
+            $cidade->setUf_Sigla($rows['uf_sigla']);
 
         }
         return $cidade;
     }
     
     function getCidadeByNome($cid_nome){
-        //$sql = "select * from cidade where cid_nome = '".$cid_nome."'";
-        
+       
         $sql = "
             select * from cidade 
                 where cid_nome like '%$cid_nome%' 

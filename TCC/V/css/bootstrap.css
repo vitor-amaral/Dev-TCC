@@ -4,7 +4,7 @@
  * Copyright 2012 Twitter, Inc
  * Licensed under the Apache License v2.0
  * http://www.apache.org/licenses/LICENSE-2.0
- * #852B23
+ * #E5A733   - E5A733
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 article,
@@ -2790,15 +2790,15 @@ input[type="submit"].btn.btn-mini {
 .navbar-inner {
   padding-left: 20px;
   padding-right: 20px;
-  background-color: #852B23;
-  background-image: -moz-linear-gradient(top, #852B23, #852B23);
-  background-image: -ms-linear-gradient(top, #852B23, #852B23);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#852B23), to(#852B23));
-  background-image: -webkit-linear-gradient(top, #852B23, #852B23);
-  background-image: -o-linear-gradient(top, #852B23, #852B23);
-  background-image: linear-gradient(top, #852B23, #852B23);
+  background-color: #E5A733;
+  background-image: -moz-linear-gradient(top, #E5A733, #E5A733);
+  background-image: -ms-linear-gradient(top, #E5A733, #E5A733);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#E5A733), to(#E5A733));
+  background-image: -webkit-linear-gradient(top, #E5A733, #E5A733);
+  background-image: -o-linear-gradient(top, #E5A733, #E5A733);
+  background-image: linear-gradient(top, #E5A733, #E5A733);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#852B23', endColorstr='#852B23', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E5A733', endColorstr='#E5A733', GradientType=0);
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
@@ -3012,9 +3012,9 @@ input[type="submit"].btn.btn-mini {
   float: none;
   padding: 10px 10px 11px;
   line-height: 19px;
-  color: #999999;
+  color: #A66200;
   text-decoration: none;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+
 }
 .navbar .nav > li > a:hover {
   background-color: transparent;
@@ -3032,8 +3032,8 @@ input[type="submit"].btn.btn-mini {
   width: 1px;
   margin: 0 9px;
   overflow: hidden;
-  background-color: #852B23;
-  border-right: 1px solid #852B23;
+  background-color: #E5A733;
+  border-right: 1px solid #E5A733;
 }
 .navbar .nav.pull-right {
   margin-left: 10px;

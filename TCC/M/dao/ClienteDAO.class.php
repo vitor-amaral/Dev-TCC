@@ -262,6 +262,7 @@ class ClienteDAO {
             "SELECT 
                 c.cli_id
                 , c.cli_nome
+                , c.cli_referencia
             FROM cliente c
             WHERE 1";
                 

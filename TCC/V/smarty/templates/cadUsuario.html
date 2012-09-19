@@ -45,10 +45,18 @@
                             <span class="label label-success">SUCESSO</span>
                             <span> O Usuario foi Alterado com Sucesso!</span>
                      {/if}
-                     {if $ret eq 's'}
+                     {if $ret eq 'sc'}
                             <span class="label label-success">SUCESSO</span>
                             <span> O Usuario foi Cadastrado com Sucesso!</span>
                      {/if}
+                    {if $ret eq 'ea'}
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel Alterar.</span>
+                    {/if}                     
+                    {if $ret eq 'ec'}
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel Cadastrar.</span>
+                    {/if}                     
                 <fieldset id="tabelaCadastro">
                     <legend id="textoNavegacao">&nbsp;&nbsp;Usuario :: {$msg}</legend>
                     <form class="well form-inline" name="formUsuario" id="formUsuario" method="POST" action ="salvaUsuario.php" >
