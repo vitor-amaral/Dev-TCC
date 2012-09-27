@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-09-17 05:54:10
+<?php /* Smarty version 2.6.26, created on 2012-09-27 03:16:14
          compiled from index.html */ ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.html", 'smarty_include_vars' => array()));
@@ -19,7 +19,7 @@ unset($_smarty_tpl_vars);
 
     <body align="center">
         <div id="conteudo" >
-            <div class="container1" style="width:20%;padding-top:10%; margin-left:35%;">     
+            <div class="container1" style="width:20%;padding-top:10%; margin-left:40%;">     
 
         <form class="well" action="Home.php" method="POST">
             <div class="control-group">                                                              

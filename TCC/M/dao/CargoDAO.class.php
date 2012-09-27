@@ -41,7 +41,11 @@ class CargoDAO {
     }
     
     function getCargos(){
-        $sql = "select * from cargo order by car_descricao";
+        $sql = "SELECT 
+					car_id
+					,car_descricao
+				FROM cargo 
+				ORDER BY car_descricao";
 
         $cargos = array();
   
@@ -57,7 +61,11 @@ class CargoDAO {
     }
        
     function getCargo($car_id){
-        $sql = "select * from cargo where car_id = ".$car_id;
+        $sql = "SELECT 
+					car_id
+					,car_descricao
+				FROM cargo 
+				WHERE car_id = ".$car_id;
 
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {
@@ -71,10 +79,12 @@ class CargoDAO {
     
     function getCargoByDescricao($car_descricao){
         
-        $sql = "               
-            select * from cargo 
-                where car_descricao like '%$car_descricao%' 
-            order by car_descricao";
+        $sql = "SELECT 
+					car_id
+					,car_descricao
+				FROM cargo 
+                WHERE car_descricao like '%$car_descricao%' 
+				ORDER BY car_descricao";
 
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {

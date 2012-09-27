@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-09-15 22:45:53
+<?php /* Smarty version 2.6.26, created on 2012-09-18 21:28:46
          compiled from listaCidade.html */ ?>
  <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.html", 'smarty_include_vars' => array()));
@@ -52,7 +52,7 @@ unset($_smarty_tpl_vars);
             <div class="container1">
                     <?php if ($this->_tpl_vars['ret'] == 'se'): ?>
                             <span class="label label-success">SUCESSO</span>
-                            <span> A Cidade foi Excluido com Sucesso!</span>
+                            <span> A Cidade foi Excluida com Sucesso!</span>
                     <?php endif; ?>
        
                     <?php if ($this->_tpl_vars['ret'] == 'ee'): ?>

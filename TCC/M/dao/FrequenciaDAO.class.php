@@ -34,10 +34,14 @@ class FrequenciaDAO {
     }
     
     function getFrequencias(){
-        $sql = "select * from frequencia order by freq_data, cli_id";
+        $sql = "SELECT 
+					freq_id
+					,cli_id
+				FROM frequencia 
+				ORDER BY freq_data, cli_id";
 
         $frequencias = array();
-;  
+  
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {
             $frequencia = new Frequencia;
@@ -50,7 +54,12 @@ class FrequenciaDAO {
     }
        
     function getFrequenciaByData($freq_data){
-        $sql = "select * from frequencia where freq_data = ".$freq_data;
+        $sql = "SELECT 
+					freq_id
+					,cli_id
+				FROM frequencia 
+				WHERE freq_data = ".$freq_data;
+				
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {
             $frequencia = new Frequencia;
@@ -63,7 +72,12 @@ class FrequenciaDAO {
     }
     
 	function getFrequenciaByCliente($cli_id){
-        $sql = "select * from frequencia where cli_id = ".$cli_id;
+        $sql = "SELECT 
+					freq_id
+					,cli_id
+				FROM frequencia 
+				WHERE cli_id = ".$cli_id;
+				
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {
             $frequencia = new Frequencia;

@@ -51,7 +51,13 @@ class ProdutoDAO {
     }
     
     function getProdutos(){
-        $sql = "select * from produto order by pro_nome";
+        $sql = "SELECT 
+					pro_id
+					,pro_nome
+					,pro_preco
+					,pro_tipo
+				FROM produto 
+				ORDER BY pro_nome";
 
         $produtos = array();
 	
@@ -69,7 +75,14 @@ class ProdutoDAO {
     }
        
     function getProduto($pro_id){
-        $sql = "select * from produto where pro_id = ".$pro_id;
+        $sql = "SELECT
+					pro_id
+					,pro_nome
+					,pro_preco
+					,pro_tipo
+				FROM produto 
+				WHERE pro_id = ".$pro_id;
+				
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {
             $produto = new Produto;

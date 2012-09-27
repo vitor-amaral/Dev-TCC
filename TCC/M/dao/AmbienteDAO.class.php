@@ -48,7 +48,12 @@ class AmbienteDAO {
     }
     
     function getAmbientes(){
-        $sql = "select * from ambiente order by amb_nome";
+        $sql = "SELECT 
+					amb_id
+					,amb_descricao
+					,amb_nome
+				FROM ambiente 
+				ORDER BY amb_nome";
 
         $ambientes = array();
 	
@@ -65,8 +70,14 @@ class AmbienteDAO {
     }
        
     function getAmbiente($amb_id){
-        $sql = "select * from ambiente where amb_id = ".$amb_id;
-        $query = mysql_query($sql,$this->conexao);
+        $sql = "SELECT 
+					amb_id
+					,amb_descricao
+					,amb_nome 
+				FROM ambiente 
+				WHERE amb_id = ".$amb_id;
+        
+		$query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {
             $ambiente = new Ambiente;
             $ambiente->setAmb_ID($rows['amb_id']);
@@ -79,9 +90,13 @@ class AmbienteDAO {
     function getAmbienteByNome($amb_nome){
        
         $sql = "
-            select * from ambiente
-                where amb_nome like '%$amb_nome%' 
-            order by amb_nome ";
+            SELECT 
+				amb_id
+				,amb_descricao
+				,amb_nome
+			FROM ambiente
+            WHERE amb_nome like '%$amb_nome%' 
+            ORDER BY amb_nome, amb_descricao";
 
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {

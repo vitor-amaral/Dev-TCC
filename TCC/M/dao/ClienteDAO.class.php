@@ -37,9 +37,15 @@ class ClienteDAO {
                , ".$cliente->getCli_id_indicador()."      
            )";
         
-        $query = mysql_query($sql,$this->conexao);
-       
-        return $query;
+            //Retorna o ID do Cliente novo
+            if (mysql_query($sql,$this->conexao)){
+               $ultimo_id = mysql_insert_id($this->conexao);
+               return $ultimo_id;
+            }else{
+               return "0";
+            } 
+        
+
     }
     
     function alterar($cliente){

@@ -54,7 +54,15 @@ class EventoDAO {
     }
     
     function getEventos(){
-        $sql = "select * from evento order by ev_data, ev_nome";
+        $sql = "SELECT 
+					ev_id
+					,ev_nome
+					,ev_tema
+					,ev_descricao
+					,ev_data
+					,usu_id
+				FROM evento 
+				ORDER BY ev_data, ev_nome";
 
         $eventos = array();
   
@@ -73,7 +81,16 @@ class EventoDAO {
     }
        
     function getEvento($ev_id){
-        $sql = "select * from evento where ev_id = ".$ev_id;
+        $sql = "SELECT 
+					ev_id
+					,ev_nome
+					,ev_tema
+					,ev_descricao
+					,ev_data
+					,usu_id
+				FROM evento 
+				WHERE ev_id = ".$ev_id;
+				
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {
             $evento = new Evento;
@@ -88,10 +105,16 @@ class EventoDAO {
     
     function getFuncionarioByNome($ev_nome){
        
-        $sql = "
-            select * from evento 
-                where ev_nome like '%$ev_nome%' 
-            order by ev_nome ";
+        $sql = "SELECT 
+					ev_id
+					,ev_nome
+					,ev_tema
+					,ev_descricao
+					,ev_data
+					,usu_id
+				FROM evento 
+                WHERE ev_nome like '%$ev_nome%' 
+				ORDER BY ev_nome ";
 
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {
@@ -108,10 +131,16 @@ class EventoDAO {
     }
     function getFuncionarioByTema($ev_tema){
        
-        $sql = "
-            select * from evento 
-                where ev_tema like '%$ev_tema%' 
-            order by ev_tema ";
+        $sql = "SELECT
+					ev_id
+					,ev_nome
+					,ev_tema
+					,ev_descricao
+					,ev_data
+					,usu_id
+				FROM evento 
+                WHERE ev_tema like '%$ev_tema%' 
+				ORDER BY ev_tema ";
 
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {

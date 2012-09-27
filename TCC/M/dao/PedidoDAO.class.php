@@ -48,7 +48,12 @@ class PedidoDAO {
     }
     
     function getPedidos(){
-        $sql = "select * from pedido order by ped_data, cli_id";
+        $sql = "SELECT 
+					ped_id
+					,ped_data
+					,cli_id
+				FROM pedido 
+				ORDER BY ped_data, cli_id";
 
         $pedidos = array();
 	
@@ -65,7 +70,13 @@ class PedidoDAO {
     }
        
     function getPedido($ped_id){
-        $sql = "select * from pedido where ped_id = ".$ped_id;
+        $sql = "SELECT
+					ped_id
+					,ped_data
+					,cli_id
+				FROM pedido 
+				WHERE ped_id = ".$ped_id;
+				
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {
             $pedido = new Pedido;
@@ -78,10 +89,13 @@ class PedidoDAO {
     
     function getPedidoByCliente($cli_id){
        
-        $sql = "
-            select * from pedido 
-                where cli_id = ".$cli_id 
-            "order by ped_data ";
+        $sql = "SELECT
+					ped_id
+					,ped_data
+					,cli_id
+				FROM pedido 
+                WHERE cli_id = ".$cli_id.
+				"ORDER BY ped_data ";
 
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {
@@ -97,10 +111,13 @@ class PedidoDAO {
 	
 	function getPedidoByData($ped_data){
        
-        $sql = "
-            select * from pedido 
-                where ped_data like '%$cli_id%'
-            order by cli_id ";
+        $sql = "SELECT 
+					ped_id
+					,ped_data
+					,cli_id
+				FROM pedido 
+                WHERE ped_data like '%$cli_id%'
+				ORDER BY cli_id ";
 
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {

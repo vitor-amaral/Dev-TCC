@@ -85,7 +85,7 @@ h1 {float:left; margin-top:3px;}
 h1 a {background:url('../img/logoSistema.png') top left no-repeat; width: 75px; height: 75px; display:block; text-indent:-9999px;}
 h2 { margin-left:20px; color:#2F96B4; font-family:Tahoma, Geneva, sans-serif; font-size:22px; font-weight:normal;}
 h3 { margin-left:20px; color:#A66200; font-family:Tahoma, Geneva, sans-serif; font-size:12px; font-weight:normal;}
-#conteudo {background:#f2f2f2;height:535px;}
+#conteudo {background:#f2f2f2;height:900px;}
 span.lisFormIcon { margin:0 -13px 0 2px;}
 ul.lisFormVert { margin-bottom:-3px; }
 ul.lisFormVert li { width:100%; clear:both; border-top:0; padding:0 0 3px; margin:0; list-style:none;}

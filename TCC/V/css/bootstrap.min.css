@@ -629,8 +629,8 @@ a.thumbnail:hover{border-color:#0088cc;-webkit-box-shadow:0 1px 4px rgba(0, 105,
 .label-important:hover{background-color:#953b39;}
 .label-warning{background-color:#f89406;}
 .label-warning:hover{background-color:#c67605;}
-.label-success{background-color:#468847;}
-.label-success:hover{background-color:#356635;}
+.label-success{background-color:#9acd33;}
+.label-success:hover{background-color:#8bb92d;}
 .label-info{background-color:#3a87ad;}
 .label-info:hover{background-color:#2d6987;}
 .label-inverse{background-color:#333333;}

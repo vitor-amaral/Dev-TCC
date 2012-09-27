@@ -51,52 +51,69 @@ class MensagemDAO {
     }
     
     function getMensagems(){
-        $sql = "select * from mensagen order by mens_titulo, mens_titulo";
+        $sql = "SELECT 
+					mens_id
+					,mens_titulo
+					,mens_texto
+					,usu_id
+				FROM mensagem
+				ORDER BY mens_titulo, mens_titulo";
 
         $mensagens = array();
   
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {
-            $mensagen = new Mensagem;
-            $mensagen->setMens_ID($rows['mens_id']);
-            $mensagen->setMens_Titulo($rows['mens_titulo']);
-            $mensagen->setMens_Texto($rows['mens_texto']);  
-            $mensagen->setUsu_ID($rows['usu_id']); 
+            $mensagem = new Mensagem;
+            $mensagem->setMens_ID($rows['mens_id']);
+            $mensagem->setMens_Titulo($rows['mens_titulo']);
+            $mensagem->setMens_Texto($rows['mens_texto']);  
+            $mensagem->setUsu_ID($rows['usu_id']); 
 
-            $mensagens[] = $mensagen;
+            $mensagens[] = $mensagem;
         }
         return $mensagens;
     }
        
     function getMensagem($mens_id){
-        $sql = "select * from mensagen where mens_id = ".$mens_id;
+        $sql = "SELECT 
+					mens_id
+					,mens_titulo
+					,mens_texto
+					,usu_id
+				FROM mensagem 
+				WHERE mens_id = ".$mens_id;
+				
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {
-            $mensagen = new Mensagem;
-            $mensagen->setMens_ID($rows['mens_id']);
-            $mensagen->setMens_Titulo($rows['mens_titulo']);
-            $mensagen->setMens_Texto($rows['mens_texto']);  
-            $mensagen->setUsu_ID($rows['usu_id']); 
+            $mensagem = new Mensagem;
+            $mensagem->setMens_ID($rows['mens_id']);
+            $mensagem->setMens_Titulo($rows['mens_titulo']);
+            $mensagem->setMens_Texto($rows['mens_texto']);  
+            $mensagem->setUsu_ID($rows['usu_id']); 
         }
-        return $mensagen;
+        return $mensagem;
     }
     
     function getMensagemByTitulo($mens_titulo){
        
-        $sql = "
-            select * from mensagem 
-                where mens_titulo like '%$mens_titulo%' 
-            order by mens_titulo ";
+        $sql = "SELECT
+					mens_id
+					,mens_titulo
+					,mens_texto
+					,usu_id
+				FROM mensagem 
+                WHERE mens_titulo like '%$mens_titulo%' 
+				ORDER BY mens_titulo ";
 
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {
-            $mensagen = new Mensagem;
-            $mensagen->setMens_ID($rows['mens_id']);
-            $mensagen->setMens_Titulo($rows['mens_titulo']);
-            $mensagen->setMens_Texto($rows['mens_texto']);  
-            $mensagen->setUsu_ID($rows['usu_id']); 
+            $mensagem = new Mensagem;
+            $mensagem->setMens_ID($rows['mens_id']);
+            $mensagem->setMens_Titulo($rows['mens_titulo']);
+            $mensagem->setMens_Texto($rows['mens_texto']);  
+            $mensagem->setUsu_ID($rows['usu_id']); 
 
-            $mensagens[] = $mensagen;
+            $mensagens[] = $mensagem;
         }
         return $mensagens;
     }
