@@ -93,3 +93,5 @@ ul.lisFormVert li { width:100%; clear:both; border-top:0; padding:0 0 3px; margi
 .tdBotao{
     width: 10px;
 }
+
+.divDialogElements ul {list-style-type: none; }

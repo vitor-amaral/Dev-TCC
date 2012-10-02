@@ -26,8 +26,7 @@ class TelefoneDAO {
        
         return $query;
     }
-    
-    
+   
     function alterar($telefone){
         
         $sql="
@@ -53,17 +52,18 @@ class TelefoneDAO {
     }   
     
     function getTelefonesCliente($cli_id){
+        
         $sql = "SELECT                
-               tel_id
-               ,tel_telefone
-               ,tel_tipo
-               ,tel_observacao
-               ,cli_id
-					FROM Telefone 
-				WHERE cli_id = ".$cli_id;
-
-        $telefones = array();
-
+           tel_id
+           ,tel_telefone
+           ,tel_tipo
+           ,tel_observacao
+           ,cli_id
+           FROM Telefone 
+           WHERE cli_id = ".$cli_id;
+                
+        $telefones = array();  
+        
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {
             $telefone = new Telefone;
@@ -71,11 +71,12 @@ class TelefoneDAO {
             $telefone->setTel_Telefone($rows['tel_telefone']);
             $telefone->setTel_Tipo($rows['tel_tipo']);  
             $telefone->setTel_Observacao($rows['tel_observacao']); 
-            $telefone->setCli_ID($rows['cli_id']);
+            $telefone->setCli_ID($rows['cli_id']);  
             
-            $telefones[] = $telefone;
-        }
-        return $telefones;
+            $telefones[] = $telefone;    
+        }           
+
+        return $telefones; 
     }
        
     function getTelefone($tel_id){

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-09-27 17:37:38
+<?php /* Smarty version 2.6.26, created on 2012-10-02 02:26:47
          compiled from cadCliente.html */ ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.html", 'smarty_include_vars' => array()));
@@ -64,31 +64,31 @@ unset($_smarty_tpl_vars);
 " />
                             
                             <div class="controls" style="margin-bottom:10px;">
-                                <label for="nomeCliente" class="control-label" style="font-size:13px;">Nome:</label>
+                                <label for="nomeCliente" class="control-label" >Nome:</label>
                                 <input type="text" id="nomeCliente" name="nomeCliente" class="input-xlarge arrendondaInputSelect" value="<?php echo $this->_tpl_vars['cliente']->getCli_nome(); ?>
 ">      
  
-                                <label for="referenciaCliente" class="control-label" style="font-size:13px;">Referência:</label>
+                                <label for="referenciaCliente" class="control-label" >Referência:</label>
                                 <input type="text" id="referenciaCliente" name="referenciaCliente" class="input-xlarge arrendondaInputSelect" placeholder="Como lembrar do cliente..." value="<?php echo $this->_tpl_vars['cliente']->getCli_referencia(); ?>
 "> 
                             </div> 
                                                         
                             <div class="controls" style="margin-bottom:10px;">                                 
-                                <label for="dtNasc" class="control-label" style="font-size:13px;">Data Nascimento:</label>
+                                <label for="dtNasc" class="control-label" >Data Nascimento:</label>
                                 <input type="text" id="dtNasc" name="dtNasc" class="input-small arrendondaInputSelect" value="<?php echo $this->_tpl_vars['cliente']->getCli_dtNasc(); ?>
 ">
 
-                                <label for="apelido" class="control-label" style="font-size:13px;">Apelido:</label>
+                                <label for="apelido" class="control-label" >Apelido:</label>
                                 <input type="text" id="apelido" name="apelido"  class="input-medium arrendondaInputSelect" value="<?php echo $this->_tpl_vars['cliente']->getCli_apelido(); ?>
 " />
                                                                                 
                                 <br/><br/>
-                                <label for="email" class="control-label" style="font-size:13px;">Email:</label>
+                                <label for="email" class="control-label" >Email:</label>
                                 <input type="text" name="email" id="email" class="input-xxlarge arrendondaInputSelect" value="<?php echo $this->_tpl_vars['cliente']->getCli_email(); ?>
 " />
                                                                                 
                                 <br/><br/> 
-                                <label for="estCivil" class="control-label" style="font-size:13px;">Relacionamento:</label>
+                                <label for="estCivil" class="control-label" >Relacionamento:</label>
                                 <select id="estCivil" name="estCivil" class="arrendondaInputSelect">
                                    <option value=""></option>
                                    <option value="1" <?php if ($this->_tpl_vars['cliente']->getCli_estCivil() == 1): ?> selected='selected' <?php endif; ?> >Solteiro</option> 
@@ -98,7 +98,7 @@ unset($_smarty_tpl_vars);
                                    <option value="5" <?php if ($this->_tpl_vars['cliente']->getCli_estCivil() == 5): ?> selected='selected' <?php endif; ?> >Viúvo</option>
                                 </select>
                                 
-                                <label for="idIndicador" class="control-label" style="font-size:13px;">Indicador:</label>
+                                <label for="idIndicador" class="control-label" >Indicador:</label>
                                 <select id="idIndicador" name="idIndicador" class="arrendondaInputSelect" >
                                    <option value=""></option>
                                     <?php $_from = $this->_tpl_vars['indicadores']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
@@ -119,26 +119,26 @@ unset($_smarty_tpl_vars);
                                 <p><span class="label">Endereço</span></p>
 
                                 <div class="controls" style="margin-bottom:10px;"> 
-                                    <label for="endereco" class="control-label" style="font-size:13px;">Logradouro:</label>  
+                                    <label for="endereco" class="control-label" >Logradouro:</label>  
                                     <input type="text" name="endereco" id="endereco" class="input-xxlarge arrendondaInputSelect"/>  
                                                                  
-                                    <label for="numero" class="control-label" style="font-size:13px;">Nº</label>
+                                    <label for="numero" class="control-label" >Nº</label>
                                     <input type="text" name="numero" id="numero" class="input-mini arrendondaInputSelect"/>
                                     
                                 </div>                  
 
                                 <div class="controls" style="margin-bottom:10px;">
                                  
-                                    <label for="complemento" class="control-label" style="font-size:13px;">Complemento:</label>
+                                    <label for="complemento" class="control-label" >Complemento:</label>
                                     <input type="text" name="complemento" id="complemento" class="input-medium arrendondaInputSelect"/>
                                                                      
-                                    <label for="bairro" class="control-label" style="font-size:13px;">Bairro:</label>
+                                    <label for="bairro" class="control-label" >Bairro:</label>
                                     <input type="text" name="bairro" id="bairro" class="input-medium arrendondaInputSelect"/>                                    
 
-                                    <label for="cep" class="control-label" style="font-size:13px;">Cep:</label>
+                                    <label for="cep" class="control-label" >Cep:</label>
                                     <input type="text" id="cep" name="cep" class="input-small arrendondaInputSelect" />         
                                     
-                                    <label for="cidade" class="control-label" style="font-size:13px;">Cidade:</label>
+                                    <label for="cidade" class="control-label" >Cidade:</label>
                                     <!--<input type="text" name="cidade" id="cidade" class="input-medium arrendondaInputSelect"/>-->
                                     <select name="cidade" id="cidade" class="input-medium arrendondaInputSelect">
                                         <option value=""></option>
@@ -154,7 +154,7 @@ unset($_smarty_tpl_vars);
                                     </select>
 
                                     <!-- Combo UF                                    
-                                    <label for="uf" class="control-label" style="font-size:13px;">UF:</label>
+                                    <label for="uf" class="control-label" >UF:</label>
                                     <select name="uf" id="uf" class="input-mini arrendondaInputSelect">
                                         <option value=""></option>                                      
                                        <option value="AC"> AC </option>
@@ -187,7 +187,7 @@ unset($_smarty_tpl_vars);
                                     </select> -->    
                                 </div>
                                 <div class="controls" style="margin-bottom:10px;">
-                                    <!--                                    <label for="obs" class="control-label" style="font-size:13px;">Observação:</label>
+                                    <!--                                    <label for="obs" class="control-label" >Observação:</label>
                                     <textarea rows="3" id="obsEnd" name="obsEnd" cols="60" class="input-xlarge"></textarea>-->
                                     <p>
                                         <input type="button" value="Adicionar Endereço" class="btn btn-small" onClick="adicionaEndereco();">
@@ -199,14 +199,14 @@ unset($_smarty_tpl_vars);
 
                                         <table id="tabelaEndereco" class="table table-striped table-bordered table-condensed">
                                             <tr>
-                                                <td>Logradouro</td>
-                                                <td>Nº</td>
-                                                <td>Complemento</td>
-                                                <td>Bairro</td>
-                                                <td>Cep</td>
-                                                <td>Cidade</td>
+                                                <th>Logradouro</th>
+                                                <th>Nº</th>
+                                                <th>Complemento</th>
+                                                <th>Bairro</th>
+                                                <th>Cep</th>
+                                                <th>Cidade</th>
                                                 <!--<td>Obs</td> -->
-                                                <td>Ações</td>
+                                                <th>Ações</th>
                                             </tr>
                                             <?php if ($this->_tpl_vars['totalEndereco'] >= 1): ?>
                                                 <?php $_from = $this->_tpl_vars['endereco']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }$this->_foreach['loopend'] = array('total' => count($_from), 'iteration' => 0);
@@ -271,17 +271,17 @@ _<?php echo $this->_tpl_vars['end']->getEnd_ID(); ?>
                                     <p><span class="label">Telefone</span></p>
                                     
                                     <div class="controls" style="margin-bottom:10px;">
-                                        <label for="telefone" class="control-label" style="font-size:13px;">Número:</label>
+                                        <label for="telefone" class="control-label" >Número:</label>
                                         <input type="text" name="telefone" id="telefone" class="input-medium arrendondaInputSelect" value=""/>
 
-                                        <label for="tipoTelefone" class="control-label" style="font-size:13px;">Tipo:</label>
+                                        <label for="tipoTelefone" class="control-label" >Tipo:</label>
                                         <select name="tipoTelefone" id="tipoTelefone" class="input-small arrendondaInputSelect">
                                             <option value="">--Selecione--</option>
                                             <option id="tel_1" value="1">Fixo</option>
                                             <option id="tel_2" value="2">Celular</option>
                                             
                                         </select>
-                                        <label for="obsTelefone" class="control-label" style="font-size:13px;">Observação:</label>
+                                        <label for="obsTelefone" class="control-label" >Observação:</label>
                                         <textarea rows="1"  id="obsTelefone" name="obsTelefone" class="input-xlarge"></textarea>
                                         <p>
                                             <input type="button" value="Adicionar Telefone" class="btn btn-small" onClick="adicionaTelefone()">
@@ -292,10 +292,10 @@ _<?php echo $this->_tpl_vars['end']->getEnd_ID(); ?>
 
                                         <table id="tabelaTelefone" class="table table-striped table-bordered table-condensed">
                                             <tr>
-                                                <td>Número</td>
-                                                <td>Tipo</td> 
-                                                <td>Obs</td>
-                                                <td>Ações</td>
+                                                <th>Número</th>
+                                                <th>Tipo</th> 
+                                                <th>Obs</th>
+                                                <th>Ações</th>
                                             </tr>
                                             <?php if ($this->_tpl_vars['totalTelefone'] >= 1): ?>
                                                 <?php $_from = $this->_tpl_vars['telefone']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }$this->_foreach['loop'] = array('total' => count($_from), 'iteration' => 0);
@@ -308,10 +308,8 @@ _<?php echo $this->_tpl_vars['fone']->getTel_ID(); ?>
 ">
                                                     <td><?php echo $this->_tpl_vars['fone']->getTel_Telefone(); ?>
 </td>
-                                                    <td>
-                                                        <?php if ($this->_tpl_vars['fone']->getTel_Tipo() == 1): ?> Fixo <?php endif; ?>
-                                                        <?php if ($this->_tpl_vars['fone']->getTel_Tipo() == 2): ?> Celular <?php endif; ?>
-                                                    </td>
+                                                    <td><?php echo $this->_tpl_vars['fone']->getTel_TipoDesc(); ?>
+</td>
                                                     <td><?php echo $this->_tpl_vars['fone']->getTel_Observacao(); ?>
 </td>
                                                     <td>
@@ -357,4 +355,4 @@ _<?php echo $this->_tpl_vars['fone']->getTel_ID(); ?>
          </div>
        </div>
     </body>
-</html>
+</html>

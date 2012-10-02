@@ -2,7 +2,9 @@
 
 class Cliente {
     private $cli_id, $cli_nome, $cli_referencia, $cli_dtNasc, $cli_email, $usu_id, $usu_login, $cli_estCivil='null', $cli_estCivilDesc, $cli_apelido, $cli_id_indicador='null', $cli_indicador;
-    
+    private $enderecos = array();
+    private $telefones = array();
+        
     public function getCli_ID() { return $this->cli_id; }
 
     public function getCli_Nome() { return $this->cli_nome; }
@@ -26,7 +28,11 @@ class Cliente {
     public function getCli_id_indicador() { return $this->cli_id_indicador; }
     
     public function getCli_indicador() { return $this->cli_indicador; } 
-       
+
+    public function getEnderecos() { return $this->enderecos; }
+    
+    public function getTelefones() {  return $this->telefones; }  
+         
     
     public function setCli_ID($cli_id) { $this->cli_id = $cli_id; }
 
@@ -69,6 +75,10 @@ class Cliente {
     public function setCli_id_indicador($cli_id_indicador) { $this->cli_id_indicador = $cli_id_indicador; }
     
     public function setCli_indicador($cli_indicador) { $this->cli_indicador = $cli_indicador; }
+    
+    public function setEnderecos($enderecos) { $this->enderecos = $enderecos;  }
+    
+    public function setTelefones($telefones) { $this->telefones = $telefones;  }    
        
 }
 

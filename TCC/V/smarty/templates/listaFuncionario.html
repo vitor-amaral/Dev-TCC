@@ -58,15 +58,15 @@
                         <form class="well form-search" name="formFuncionario" id="formFuncionario" method="POST" action="listaFuncionarios.php">
                                 <div class="control-group">
                                     <div class="controls" style="margin-bottom:10px;">
-                                        <label for="nomeFuncionario" class="control-label" style="font-size:13px;">Nome:</label>
+                                        <label for="nomeFuncionario" class="control-label" >Nome:</label>
                                         <input type="text" id="nomeFuncionario" name="nomeFuncionario" class="input-xlarge arrendondaInputSelect" value="{$nomeFuncionario}">      
  
-                                        <label for="matriculaFuncionario" class="control-label" style="font-size:13px;">Matricula:</label>
+                                        <label for="matriculaFuncionario" class="control-label" >Matricula:</label>
                                         <input type="text" id="matriculaFuncionario" name="matriculaFuncionario" class="input-xlarge arrendondaInputSelect" value="{$matriculaFuncionario}"> 
                                   
                                     </div>
                                     <div class="controls" style="margin-bottom:10px;">   
-                                        <label for="idcargo" class="control-label" style="font-size:13px;">Cargo:</label>
+                                        <label for="idcargo" class="control-label" >Cargo:</label>
                                         <select id="idcargo" name="idcargo" class="arrendondaInputSelect">
                                            <option value=""></option>
                                             {foreach from=$cargos item=cargo}

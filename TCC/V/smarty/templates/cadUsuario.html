@@ -64,10 +64,10 @@
                             <input type="hidden" name="Save" id="Save" value="{$Save}" />
                             <input type="hidden" name="idUsuario" id="idUsuario" value="{$usuario->getUsuario_ID()}" />
                             <div class="controls" style="margin-bottom:10px;">
-                                <label for="loginUsuario" class="control-label" style="font-size:13px;">Login:</label>
+                                <label for="loginUsuario" class="control-label" >Login:</label>
                                 <input type="text" id="loginUsuario" name="loginUsuario" class="input-xlarge arrendondaInputSelect" value="{$usuario->getUsuario_Login()}">
                            
-                                <label for="idTipoAcesso" class="control-label" style="font-size:13px;">Tipo Acesso:</label>
+                                <label for="idTipoAcesso" class="control-label" >Tipo Acesso:</label>
                                 <select id="idTipoAcesso" name="idTipoAcesso" class="arrendondaInputSelect">
                                    <option value=""></option>
                                     {foreach from=$tipos item=tipo}
@@ -79,16 +79,16 @@
                                 <p><span class="label">Senha</span></p>
                                 <div class="controls" style="margin-bottom:10px;">                            
                                     {if $Save eq 'a'} 
-                                        <label for="senhaUsuario" class="control-label" style="font-size:13px;">Senha:</label> 
+                                        <label for="senhaUsuario" class="control-label" >Senha:</label> 
                                         <input type="password" id="senhaUsuario" name="senhaUsuario" class="input-xlsmall arrendondaInputSelect" value="">                            
                                     {/if}
                                 </div>
                                 <div class="controls" style="margin-bottom:10px;">  
-                                   <label for="novasenhaUsuario" class="control-label" style="font-size:13px;">Nova Senha:</label> 
+                                   <label for="novasenhaUsuario" class="control-label" >Nova Senha:</label> 
                                    <input type="password" id="novasenhaUsuario" name="novasenhaUsuario" onkeyup="testasenha()" class="input-xsmall arrendondaInputSelect" value="">
                                 </div>
                                 <div class="controls" style="margin-bottom:10px;"> 
-                                   <label for="confsenhaUsuario" class="control-label" style="font-size:13px;">Confirmação:</label> 
+                                   <label for="confsenhaUsuario" class="control-label" >Confirmação:</label> 
                                    <input type="password" id="confsenhaUsuario" name="confsenhaUsuario" class="input-xsmall arrendondaInputSelect" onkeyup="testasenha()" value=""><SPAN id="status"></SPAN>
                                 </div>
                             </div>
@@ -96,7 +96,7 @@
                             <div class="well" id="func" style="border:1px;color:#4D9DA8;border-style:solid;" >  
                                 <p><span class="label">Funcionario</span></p> 
                                 <!--                                
-                                <label for="idFuncionario" class="control-label" style="font-size:13px;">Funcionario:</label>
+                                <label for="idFuncionario" class="control-label" >Funcionario:</label>
                                 <select id="idFuncionario" name="idFuncionario" class="arrendondaInputSelect">
                                    <option value=""></option>
                                     {foreach from=$funcionarios item=funcionario}

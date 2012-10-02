@@ -1,11 +1,14 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set('display_errors', '0');// NÃO HABILITADO
 require_once("SmartyConf.php");
 require_once("../M/dao/Conexao.class.php");
 require_once("../M/classes/Cliente.class.php");      
 require_once("../M/dao/ClienteDAO.class.php");
 require_once("../M/classes/Usuario.class.php");      
-require_once("../M/dao/UsuarioDAO.class.php"); 
+require_once("../M/dao/UsuarioDAO.class.php");
+require_once("../M/classes/Telefone.class.php"); 
+require_once("../M/classes/Endereco.class.php"); 
 
 $con = new Conexao();
                                           
@@ -24,7 +27,7 @@ if(isset($_REQUEST['referenciaCliente'])){
     $referencia = $_REQUEST['referenciaCliente'];
     $smarty->assign("referenciaCliente",$referencia);
 }else{
-    $matricula = "";
+    $referencia = "";
 }
 
 if(isset($_REQUEST['idusuario'])){
@@ -72,8 +75,17 @@ if(isset($_REQUEST['estCivil'])){
 $clientes = $DAO->getClientes_Filtro($nome,$referencia,$nascimento, $email,$usuario,$estCivil,$apelido,$indicador);
 $indicadores = $DAO->getClientes();
 
+/*foreach ($clientes as $v) {                    
+
+echo "Nome:".$v->getCli_Nome()."\n";
+foreach ($v->getEnderecos() as $s) { 
+      echo "{End}:".$s->getEnd_Rua()."\n";  
+}
+} */
+
 $total = count($clientes);
-$usuarios = $usuarioDAO->getUsuarios(); 
+
+//$usuarios = $usuarioDAO->getUsuarios(); 
   
 $smarty->assign("ret",$_REQUEST['ret']); 
 $smarty->assign("totalClientes",$total);

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-09-15 22:45:56
+<?php /* Smarty version 2.6.26, created on 2012-09-29 20:44:02
          compiled from listaUsuario.html */ ?>
  <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.html", 'smarty_include_vars' => array()));
@@ -65,12 +65,12 @@ unset($_smarty_tpl_vars);
                         <form class="well form-search" name="formUsuario" id="formUsuario" method="POST" action="listaUsuarios.php">
                                 <div class="control-group">
                                     <div class="controls" style="margin-bottom:10px;">
-                                        <label for="loginUsuario" class="control-label" style="font-size:13px;">Login:</label>
+                                        <label for="loginUsuario" class="control-label" >Login:</label>
                                         <input type="text" id="loginUsuario" name="loginUsuario" class="input-xlarge arrendondaInputSelect" value="<?php echo $this->_tpl_vars['loginUsuario']; ?>
 ">      
 <!--                                    </div>
                                     <div class="controls" style="margin-bottom:10px;"> -->  
-                                        <label for="idTipoAcesso" class="control-label" style="font-size:13px;">Tipo Acesso:</label>
+                                        <label for="idTipoAcesso" class="control-label" >Tipo Acesso:</label>
                                         <select id="idTipoAcesso" name="idTipoAcesso" class="arrendondaInputSelect">
                                            <option value=""></option>
                                             <?php $_from = $this->_tpl_vars['tipos']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
@@ -84,7 +84,7 @@ unset($_smarty_tpl_vars);
                                     <!--<div>-->
                                     <!-- Filtro por funcionário -->
                                     <!--<div class="controls" style="margin-bottom:10px;">   
-                                        <label for="idFuncionario" class="control-label" style="font-size:13px;">Funcionario:</label>
+                                        <label for="idFuncionario" class="control-label" >Funcionario:</label>
                                         <select id="idFuncionario" name="idFuncionario" class="arrendondaInputSelect">
                                            <option value=""></option>
                                             <?php $_from = $this->_tpl_vars['funcionarios']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-09-15 22:46:05
+<?php /* Smarty version 2.6.26, created on 2012-10-02 03:47:20
          compiled from listaFuncionario.html */ ?>
  <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.html", 'smarty_include_vars' => array()));
@@ -65,17 +65,17 @@ unset($_smarty_tpl_vars);
                         <form class="well form-search" name="formFuncionario" id="formFuncionario" method="POST" action="listaFuncionarios.php">
                                 <div class="control-group">
                                     <div class="controls" style="margin-bottom:10px;">
-                                        <label for="nomeFuncionario" class="control-label" style="font-size:13px;">Nome:</label>
+                                        <label for="nomeFuncionario" class="control-label" >Nome:</label>
                                         <input type="text" id="nomeFuncionario" name="nomeFuncionario" class="input-xlarge arrendondaInputSelect" value="<?php echo $this->_tpl_vars['nomeFuncionario']; ?>
 ">      
  
-                                        <label for="matriculaFuncionario" class="control-label" style="font-size:13px;">Matricula:</label>
+                                        <label for="matriculaFuncionario" class="control-label" >Matricula:</label>
                                         <input type="text" id="matriculaFuncionario" name="matriculaFuncionario" class="input-xlarge arrendondaInputSelect" value="<?php echo $this->_tpl_vars['matriculaFuncionario']; ?>
 "> 
                                   
                                     </div>
                                     <div class="controls" style="margin-bottom:10px;">   
-                                        <label for="idcargo" class="control-label" style="font-size:13px;">Cargo:</label>
+                                        <label for="idcargo" class="control-label" >Cargo:</label>
                                         <select id="idcargo" name="idcargo" class="arrendondaInputSelect">
                                            <option value=""></option>
                                             <?php $_from = $this->_tpl_vars['cargos']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):

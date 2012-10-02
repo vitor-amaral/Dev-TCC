@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-09-18 18:53:02
+<?php /* Smarty version 2.6.26, created on 2012-10-02 02:24:08
          compiled from cadUsuario.html */ ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.html", 'smarty_include_vars' => array()));
@@ -74,11 +74,11 @@ unset($_smarty_tpl_vars);
                             <input type="hidden" name="idUsuario" id="idUsuario" value="<?php echo $this->_tpl_vars['usuario']->getUsuario_ID(); ?>
 " />
                             <div class="controls" style="margin-bottom:10px;">
-                                <label for="loginUsuario" class="control-label" style="font-size:13px;">Login:</label>
+                                <label for="loginUsuario" class="control-label" >Login:</label>
                                 <input type="text" id="loginUsuario" name="loginUsuario" class="input-xlarge arrendondaInputSelect" value="<?php echo $this->_tpl_vars['usuario']->getUsuario_Login(); ?>
 ">
                            
-                                <label for="idTipoAcesso" class="control-label" style="font-size:13px;">Tipo Acesso:</label>
+                                <label for="idTipoAcesso" class="control-label" >Tipo Acesso:</label>
                                 <select id="idTipoAcesso" name="idTipoAcesso" class="arrendondaInputSelect">
                                    <option value=""></option>
                                     <?php $_from = $this->_tpl_vars['tipos']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
@@ -94,16 +94,16 @@ unset($_smarty_tpl_vars);
                                 <p><span class="label">Senha</span></p>
                                 <div class="controls" style="margin-bottom:10px;">                            
                                     <?php if ($this->_tpl_vars['Save'] == 'a'): ?> 
-                                        <label for="senhaUsuario" class="control-label" style="font-size:13px;">Senha:</label> 
+                                        <label for="senhaUsuario" class="control-label" >Senha:</label> 
                                         <input type="password" id="senhaUsuario" name="senhaUsuario" class="input-xlsmall arrendondaInputSelect" value="">                            
                                     <?php endif; ?>
                                 </div>
                                 <div class="controls" style="margin-bottom:10px;">  
-                                   <label for="novasenhaUsuario" class="control-label" style="font-size:13px;">Nova Senha:</label> 
+                                   <label for="novasenhaUsuario" class="control-label" >Nova Senha:</label> 
                                    <input type="password" id="novasenhaUsuario" name="novasenhaUsuario" onkeyup="testasenha()" class="input-xsmall arrendondaInputSelect" value="">
                                 </div>
                                 <div class="controls" style="margin-bottom:10px;"> 
-                                   <label for="confsenhaUsuario" class="control-label" style="font-size:13px;">Confirmação:</label> 
+                                   <label for="confsenhaUsuario" class="control-label" >Confirmação:</label> 
                                    <input type="password" id="confsenhaUsuario" name="confsenhaUsuario" class="input-xsmall arrendondaInputSelect" onkeyup="testasenha()" value=""><SPAN id="status"></SPAN>
                                 </div>
                             </div>
@@ -111,7 +111,7 @@ unset($_smarty_tpl_vars);
                             <div class="well" id="func" style="border:1px;color:#4D9DA8;border-style:solid;" >  
                                 <p><span class="label">Funcionario</span></p> 
                                 <!--                                
-                                <label for="idFuncionario" class="control-label" style="font-size:13px;">Funcionario:</label>
+                                <label for="idFuncionario" class="control-label" >Funcionario:</label>
                                 <select id="idFuncionario" name="idFuncionario" class="arrendondaInputSelect">
                                    <option value=""></option>
                                     <?php $_from = $this->_tpl_vars['funcionarios']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
@@ -168,4 +168,4 @@ unset($_smarty_tpl_vars);
          </div>
        </div>
     </body>
-</html>
+</html>

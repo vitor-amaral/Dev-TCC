@@ -1,10 +1,17 @@
 <?php
 
+require_once("EnderecoDAO.class.php");
+require_once("TelefoneDAO.class.php");
+
 class ClienteDAO {
     private $conexao;
+    private $enderecoDao;
+    private $telefoneDao;    
     
     function __construct($conexao) {
         $this->conexao = $conexao;
+        $this->enderecoDao = new EnderecoDAO($this->conexao);
+        $this->telefoneDao = new TelefoneDAO($this->conexao);        
     }
     
     function inserir($cliente){
@@ -240,7 +247,7 @@ class ClienteDAO {
         }
                                      
         $sql.= " ORDER BY c.cli_nome";
-        
+
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {
            $cliente = new Cliente;
@@ -254,7 +261,10 @@ class ClienteDAO {
            $cliente->setCli_estCivil($rows['cli_estCivil']);  
            $cliente->setCli_apelido($rows['cli_apelido']);  
            $cliente->setCli_id_indicador($rows['cli_id_indicador']);  
-           $cliente->setCli_indicador($rows['cli_indicador']);    
+           $cliente->setCli_indicador($rows['cli_indicador']);
+           
+           $cliente->setEnderecos($this->enderecoDao->getEnderecosCliente($rows['cli_id']));
+           $cliente->setTelefones($this->telefoneDao->getTelefonesCliente($rows['cli_id']));  
             
            $clientes[] = $cliente;
             
