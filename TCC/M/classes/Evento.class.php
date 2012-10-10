@@ -1,7 +1,7 @@
 <?php
 
 class Evento {
-    private $ev_id, $ev_nome, $ev_tema, $ev_descricao, $ev_data;
+    private $ev_id, $ev_nome, $ev_tema, $ev_descricao, $ev_data, $ev_hora, $usu_id;
     
     public function getEv_ID(){
         return $this->ev_id;
@@ -21,7 +21,15 @@ class Evento {
 	
 	public function getEv_Data() {
         return $this->ev_data;
+    }        
+    
+    public function getEv_Hora() {
+        return $this->ev_hora;
     }
+    
+    public function getUsu_ID() {
+        return $this->usu_id;
+    }            
     
     public function setEv_ID($ev_id) {
         $this->ev_id = $ev_id;
@@ -42,6 +50,15 @@ class Evento {
 	public function setEv_Data($ev_data) {
         $this->ev_data = $ev_data;
     }   
-}
+    
+        public function setEv_Hora($ev_hora) {
+        $this->ev_hora = $ev_hora;
+    }
+    
+     public function setUsu_ID($usu_id) {
+        $this->usu_id = $usu_id;
+    }
+       
+}    
 
 ?>
