@@ -1,0 +1,59 @@
+{include file="menu.html"}    
+<html>
+    {literal}
+    <head>
+        <title>Categorias</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/processo.css">
+        <script type="text/javascript">
+            function abreListagem(){
+                window.location.href="listaCatReclamacao.php";
+            }
+        </script>
+    </head>
+    {/literal}
+    <body>
+        <div id="conteudo">
+            <div class="container1">
+                <div class="asdf">
+                    {if $ret eq 'sa'}
+                            <span class="label label-success">SUCESSO</span>
+                            <span> A categoria foi Alterada com Sucesso!</span>
+                     {/if}
+                     {if $ret eq 'sc'}
+                            <span class="label label-success">SUCESSO</span>
+                            <span>A categoria foi Cadastrada com Sucesso!</span>
+                     {/if}
+                    {if $ret eq 'ea'}
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel Alterar.</span>
+                    {/if}                     
+                    {if $ret eq 'ec'}
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel Cadastrar. </span>
+                    {/if}                     
+                <fieldset id="tabelaCadastro">
+                    <legend id="textoNavegacao">&nbsp;&nbsp;Categoria :: {$msg}</legend>
+                    <form class="well form-inline" name="formCategoria" id="formCategoria" method="POST" action="salvaCatReclamacao.php">
+                        <div class="control-group">
+                            <input type="hidden" name="Save" id="Save" value="{$Save}" />
+                            <input type="hidden" name="idCatReclamacao" id="idCatReclamacao" value="{$catReclamacao->getCatReclamacao_ID()}" />
+                            <div class="controls" style="margin-bottom:10px;">
+                                <label for="catReclamcao" class="control-label" style="font-size:13px;">Categoria:</label>
+                                <input type="text" id="catReclamacao" name="catReclamacao" class="input-xlarge arrendondaInputSelect" value="{$catReclamacao->getCatReclamacao_Desc()}">
+                            </div>
+                            
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" type="submit">{$nomeBotao}</button>     
+                        </div>
+                    </form>
+                    <button class="btn" onclick="return abreListagem();">Voltar para Listagem</button>
+                </fieldset>
+            </div>
+         </div>
+       </div>
+    </body>
+</html>

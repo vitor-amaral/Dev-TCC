@@ -1,0 +1,102 @@
+ {include file="menu.html"}           
+<html>
+    {literal}
+    <head>
+        <title>Categorias</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/processo.css">
+        
+        <script type="text/javascript" language="JavaScript" src="../V/js/bootstrap.js"></script>
+        
+        <script type="text/javascript" >
+
+            $(function(){
+                $("[rel=tooltip]").tooltip();
+            });
+                    
+           function abreNovaCategoria(){
+               window.location.href="cadCatReclamacao.php";
+           }
+           
+           function editarCatReclamacao(idCatReclamacao){
+             window.location.href="cadCatReclamacao.php?idCatReclamacao="+idCatReclamacao;  
+           }
+           
+           function enviar(){
+               $("#formCategoria").submit();
+
+           }
+           
+           function excluirCatReclamacao(idCatReclamacao){
+               if(confirm("Deseja realmente Excluir?")){
+                   location.href="excluirCatReclamacao.php?idCatReclamacao="+idCatReclamacao;
+               }else{
+                   return false;
+               }
+           
+           }
+        </script>
+    </head>
+    {/literal}
+    <body>
+        <div id="conteudo" {if $totalCategorias > 10} style='height:100%;' {/if}>
+            <div class="container1">
+                    {if $ret eq 'se'}
+                            <span class="label label-success">SUCESSO</span>
+                            <span> A Categoria foi Excluida com Sucesso!</span>
+                    {/if}
+       
+                    {if $ret eq 'ee'}
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel excluir.</span>
+                    {/if}              
+                    <fieldset id="tabelaCadastro">
+                        <legend id="textoNavegacao">&nbsp;&nbsp;Categorias :: Listagem</legend>
+                        <form class="well form-search" name="formCategoria" id="formCategoria" method="POST" action="listaCatReclamacao.php">
+                                <div class="control-group">
+                                    <div class="controls" style="margin-bottom:10px;">
+                                        <label for="catReclamacao" class="control-label" style="font-size:13px;">Categoria:</label>
+                                        <input type="text" id="catReclamacao" name="catReclamacao" class="input-xlarge arrendondaInputSelect" value="{$descricao}">                                              
+                                    <div>    
+                                        <br/>
+                                        <button type="submit" onclick="enviar();" class="btn">Procurar</button>
+                                    </div>
+                                    </div>
+                                </div>
+                           </form>
+                    </fieldset>
+                    <button onclick="return abreNovaCategoria();" class="btn btn-info">Nova Categoria</button>
+                    
+                    <div class="grid">                        
+                          <table class="table table-striped table-bordered table-condensed"> 
+                              <tr>
+                                  <th>Categoria</th>
+                                  <th class=tdBotao>Editar</th>
+                                  <th class=tdBotao>Excluir</th>
+                              </tr> 
+                              
+                              {foreach from=$categorias item=categoria }
+                              
+                              <tr>
+                                  <td>{$categoria->getCatReclamacao_Desc()}</td>
+                                  <td>
+                                    <a href="#" rel="tooltip" onclick="return editarCatReclamacao({$categoria->getCatReclamacao_ID()});"  title="Clique para Editar esta Categoria">
+                                          <i class="icon-edit"></i>
+                                      </a>
+                                  </td>
+                                  <td>
+                                      <a href="#" rel="tooltip" onclick="return excluirCatReclamacao('{$categoria->getCatReclamacao_ID()}');" title="Clique para Excluir esta Categoria">
+                                          <i class="icon-trash"></i>                                          
+                                      </a>
+                                  </td>
+                              </tr>
+                              
+                              {/foreach}
+                          </table>
+                    </div>
+            </div>
+       </div>
+    </body>
+</html>

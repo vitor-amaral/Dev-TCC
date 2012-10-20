@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-09-18 18:03:49
+<?php /* Smarty version 2.6.26, created on 2012-10-20 18:17:40
          compiled from menu.html */ ?>
 <!doctype html>
 <!--[if lt IE 7 ]> <html class="no-js ie6" dir="ltr" lang="en-US"> <![endif]-->
@@ -73,7 +73,7 @@
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reclama&ccedil;&otilde;es<b class="caret"></b></a>
                                     <ul class="dropdown-menu"> 
                                         <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="listaReclamacoes.php">Gerenciar</a></li> 
-                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="#">Categoria</a></li>
+                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="listaCatReclamacao.php">Categoria</a></li>
                                     </ul>
                                 </li>   
                                                            

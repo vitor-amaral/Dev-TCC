@@ -1,0 +1,93 @@
+{include file="menu.html"}    
+<html>
+    {literal}
+    <head>
+        <title>Categorias</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/processo.css">
+        <script type="text/javascript">
+            function abreListagem(){
+                window.location.href="listaReclamacoes.php";
+            }
+        </script>
+    </head>
+    {/literal}
+    <body>
+        <div id="conteudo">
+            <div class="container1">
+                <div class="asdf">
+                    {if $ret eq 'sa'}
+                            <span class="label label-success">SUCESSO</span>
+                            <span> A reclamação foi Alterada com Sucesso!</span>
+                     {/if}
+                     {if $ret eq 'sc'}
+                            <span class="label label-success">SUCESSO</span>
+                            <span>A reclamção foi Cadastrada com Sucesso!</span>
+                     {/if}
+                    {if $ret eq 'ea'}
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel Alterar.</span>
+                    {/if}                     
+                    {if $ret eq 'ec'}
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel Cadastrar. </span>
+                    {/if}                     
+                <fieldset id="tabelaCadastro">
+                        <legend id="textoNavegacao">&nbsp;&nbsp;Gerenciar Reclamações/Sugestões</legend>
+                        <form class="well form-search" name="formReclamacao" id="formReclamacao" method="POST" action="salvaReclamacao.php">
+                                <div class="control-group">
+                                    <input type="hidden" name="Save" id="Save" value="{$Save}" />
+                                    <input type="hidden" name="idReclamacao" id="idReclamacao" value="{$reclamacao->getReclamacao_ID()}" />
+                                    <div class="controls" style="margin-bottom:10px;">
+                                        <div>                                  
+                                            <label for="autorReclamacao" class="control-label" style="font-size:13px;">Autor:</label>
+                                            <select id="autorReclamacao" name="autorReclamacao" class="arrendondaInputSelect">
+                                                <option value="">::Selecione Lista::</option>
+                                                {foreach from=$clientes item=cliente}
+                                                    <option value="{$cliente->getCli_ID()}" {if $cliente->getCli_ID() eq $reclamacao->getCliente_id()} selected='selected' {/if} >
+                                                        {$cliente->getCli_nome()}
+                                                    </option>                                                
+                                                 {/foreach}   
+                                            </select>
+                                            <label for="tituloReclamacao" class="control-label" style="font-size:13px;">Título:</label>
+                                            <input type="text" id="tituloReclamacao" name="tituloReclamacao" class="input-xlarge arrendondaInputSelect" value="{$reclamacao->getReclamacao_titulo()}">
+                                        </div>
+                                        <div>
+                                            <br/>     
+                                            <label for="catReclamacao" class="control-label" style="font-size:13px;">Categoria:</label>
+                                            <select id="catReclamacao" name="catReclamacao" class="arrendondaInputSelect">
+                                                <option value="">::Selecione Lista::</option>
+                                                {foreach from=$categorias item=categoria}
+                                                    <option value="{$categoria->getCatReclamacao_ID()}" {if $categoria->getCatReclamacao_ID() eq $reclamacao->getCategoria_id()} selected='selected' {/if} >
+                                                        {$categoria->getCatReclamacao_desc()}
+                                                    </option>                                                
+                                                 {/foreach}                                                
+                                            </select>                                            
+                                            <label for="statusReclamacao" class="control-label" style="font-size:13px;">Status:</label>
+                                            <select id="statusReclamacao" name="statusReclamacao" class="arrendondaInputSelect">
+                                                <option value="">::Selecione::</option>                                                                                                
+                                                    <option value="1" {if $reclamacao->getReclamacao_status() eq 1} selected='selected' {/if} >Positiva</option> 
+                                                    <option value="2" {if $reclamacao->getReclamacao_status() eq 2} selected='selected' {/if}  >Negativa</option>                                                                                                   
+                                            </select>                                                                
+                                        </div>
+                                        <div> 
+                                            <br/>   
+                                            <label>Descrição</label>
+                                            <textarea class="input-xlarge arrendondaInputSelect" id="descReclamacao" name="descReclamacao" rows="3">{$reclamacao->getReclamacao_desc()}</textarea><br/>
+                                        </div>  
+                                            
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary" type="submit">{$nomeBotao}</button>     
+                                </div>
+                           </form>                           
+                           <button class="btn" onclick="return abreListagem();">Voltar para Listagem</button>
+                    </fieldset>                                 
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
