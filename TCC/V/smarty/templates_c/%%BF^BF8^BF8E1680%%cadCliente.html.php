@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-10-02 02:26:47
+<?php /* Smarty version 2.6.26, created on 2012-10-15 00:47:22
          compiled from cadCliente.html */ ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.html", 'smarty_include_vars' => array()));
@@ -329,8 +329,7 @@ _<?php echo $this->_tpl_vars['fone']->getTel_ID(); ?>
                                                     <input type='hidden' name='idTelbd[]' id='idTelbd' value='<?php echo $this->_tpl_vars['fone']->getTel_ID(); ?>
 ' />                                                     
                                                 </tr>
-                                                <?php endforeach; endif; unset($_from); ?>
-                                                 
+                                                <?php endforeach; endif; unset($_from); ?> 
                                             <?php endif; ?>
                                             <input type="hidden" name="nomeLiTel" id="nomeLiTel" value=""/>
                                             <input type='hidden' name='totalTelefone' id='totalTelefone' value='<?php echo $this->_tpl_vars['totalTelefone']; ?>

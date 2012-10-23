@@ -100,6 +100,8 @@ class FuncionarioDAO {
                 where func_nome like '%$func_nome%' 
             order by func_nome ";
 
+        $funcionarios = array();
+                    
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {
             $funcionario = new Funcionario;
@@ -140,6 +142,8 @@ class FuncionarioDAO {
          
         $sql.= " ORDER BY f.func_nome ";        
 
+        $funcionarios = array();
+                
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {
             $funcionario = new Funcionario;

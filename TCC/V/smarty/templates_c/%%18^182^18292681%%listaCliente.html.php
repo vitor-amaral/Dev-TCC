@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2012-10-02 02:04:18
+<?php /* Smarty version 2.6.26, created on 2012-10-05 04:46:30
          compiled from listaCliente.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'count', 'listaCliente.html', 216, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'count', 'listaCliente.html', 215, false),)), $this); ?>
  <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.html", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
@@ -49,8 +49,7 @@ unset($_smarty_tpl_vars);
            } 
                       
            function preferencia(idCliente){
-             //window.location.href="cadCliente.php?idCliente="+idCliente;  
-             alert("exibe tela preferencia");
+               window.location.href="cadPreferencia.php?idCliente="+idCliente;
              
            }
                       

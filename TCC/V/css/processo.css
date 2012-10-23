@@ -78,6 +78,11 @@
     border-radius: 10px; /* Para Opera 10.5+*/
 }
 
+.trdetail  td{
+    background-color: #eaf1f6;
+}
+
+
 * {margin:0; padding:0;}
 .container1 {width:950px; margin:0 auto;height:100%;}
 #topo {background:url('../img/bgTopo.png') top left repeat-x #f2f2f2; height:95px;margin-top:42px;}
