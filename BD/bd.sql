@@ -116,8 +116,8 @@ DROP TABLE IF EXISTS `sc_tccProfileTracer`.`Cliente` ;
 
 CREATE  TABLE IF NOT EXISTS `sc_tccProfileTracer`.`Cliente` (
   `cli_id` INT NOT NULL AUTO_INCREMENT ,
-  `cli_nome` VARCHAR(50) NOT NULL ,
-  `cli_referencia` VARCHAR(70) NOT NULL COMMENT 'Algum comentário que ajude a lembrar do cliente em questão. Ex: \"Zé da padaria\", \"Careca\", \"amigo do Geraldo\", etc' ,
+  `cli_nome` VARCHAR(50) NULL ,
+  `cli_referencia` VARCHAR(70) NULL COMMENT 'Algum comentário que ajude a lembrar do cliente em questão. Ex: \"Zé da padaria\", \"Careca\", \"amigo do Geraldo\", etc' ,
   `cli_dtNasc` DATE NULL ,
   `cli_email` VARCHAR(50) NULL ,
   `usu_id` INT NOT NULL COMMENT 'usuário que realizou o cadastro desse cliente.' ,
@@ -166,7 +166,7 @@ CREATE  TABLE IF NOT EXISTS `sc_tccProfileTracer`.`Endereco` (
   CONSTRAINT `fk_Endereco_Cliente1`
     FOREIGN KEY (`cli_id` )
     REFERENCES `sc_tccProfileTracer`.`Cliente` (`cli_id` )
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -185,7 +185,7 @@ CREATE  TABLE IF NOT EXISTS `sc_tccProfileTracer`.`Pedido` (
   CONSTRAINT `fk_Pedido_Cliente`
     FOREIGN KEY (`cli_id` )
     REFERENCES `sc_tccProfileTracer`.`Cliente` (`cli_id` )
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -210,7 +210,7 @@ CREATE  TABLE IF NOT EXISTS `sc_tccProfileTracer`.`ProdutoPedido` (
   CONSTRAINT `fk_ProdutoPedido_Pedido`
     FOREIGN KEY (`ped_id` )
     REFERENCES `sc_tccProfileTracer`.`Pedido` (`ped_id` )
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -268,7 +268,7 @@ CREATE  TABLE IF NOT EXISTS `sc_tccProfileTracer`.`Frequencia` (
   CONSTRAINT `fk_Frequencia_Cliente`
     FOREIGN KEY (`cli_id` )
     REFERENCES `sc_tccProfileTracer`.`Cliente` (`cli_id` )
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -285,6 +285,7 @@ CREATE  TABLE IF NOT EXISTS `sc_tccProfileTracer`.`Evento` (
   `ev_descricao` VARCHAR(150) NOT NULL ,
   `ev_data` DATE NOT NULL ,
   `usu_id` INT NOT NULL ,
+  `ev_hora` TIME NOT NULL ,
   PRIMARY KEY (`ev_id`) ,
   INDEX `fk_Evento_Usuario` (`usu_id` ASC) ,
   CONSTRAINT `fk_Evento_Usuario`
@@ -398,7 +399,7 @@ CREATE  TABLE IF NOT EXISTS `sc_tccProfileTracer`.`PreferenciaCliente` (
   CONSTRAINT `fk_PreferenciaCliente_Referencia_Cliente`
     FOREIGN KEY (`cli_id` )
     REFERENCES `sc_tccProfileTracer`.`Cliente` (`cli_id` )
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_PreferenciaCliente_Referencia_Pergunta`
     FOREIGN KEY (`perg_id` )
@@ -429,7 +430,7 @@ CREATE  TABLE IF NOT EXISTS `sc_tccProfileTracer`.`PreferenciaCliente_Referencia
   CONSTRAINT `fk_PreferenciaCliente_Cliente`
     FOREIGN KEY (`cli_id` )
     REFERENCES `sc_tccProfileTracer`.`Cliente` (`cli_id` )
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_PreferenciaCliente_Pergunta`
     FOREIGN KEY (`perg_id` )
@@ -446,8 +447,8 @@ DROP TABLE IF EXISTS `sc_tccProfileTracer`.`Telefone` ;
 
 CREATE  TABLE IF NOT EXISTS `sc_tccProfileTracer`.`Telefone` (
   `tel_id` INT NOT NULL AUTO_INCREMENT ,
-  `tel_telefone` CHAR(10) NOT NULL ,
-  `tel_tipo` TINYINT(4) NOT NULL ,
+  `tel_telefone` CHAR(14) NOT NULL ,
+  `tel_tipo` TINYINT(4) NOT NULL COMMENT '1 - Fixo; 2 - Celular' ,
   `tel_observacao` VARCHAR(100) NULL ,
   `cli_id` INT NOT NULL ,
   PRIMARY KEY (`tel_id`, `cli_id`) ,
@@ -455,7 +456,7 @@ CREATE  TABLE IF NOT EXISTS `sc_tccProfileTracer`.`Telefone` (
   CONSTRAINT `fk_Telefone_Cliente1`
     FOREIGN KEY (`cli_id` )
     REFERENCES `sc_tccProfileTracer`.`Cliente` (`cli_id` )
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -495,6 +496,34 @@ USE `sc_tccProfileTracer`;
 INSERT INTO `sc_tccProfileTracer`.`Cargo` (`car_id`, `car_descricao`) VALUES (1, 'Gerente');
 INSERT INTO `sc_tccProfileTracer`.`Cargo` (`car_id`, `car_descricao`) VALUES (2, 'Garçom');
 INSERT INTO `sc_tccProfileTracer`.`Cargo` (`car_id`, `car_descricao`) VALUES (3, 'Cozinheiro');
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `sc_tccProfileTracer`.`Funcionario`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `sc_tccProfileTracer`;
+INSERT INTO `sc_tccProfileTracer`.`Funcionario` (`func_id`, `func_nome`, `func_matricula`, `car_id`) VALUES (1, 'Func Padrao', '123456', 1);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `sc_tccProfileTracer`.`Usuario`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `sc_tccProfileTracer`;
+INSERT INTO `sc_tccProfileTracer`.`Usuario` (`usu_id`, `usu_login`, `usu_senha`, `tpa_id`, `func_id`) VALUES (1, 'usu_padrao', '123456', 1, 1);
+
+COMMIT;
+
+-- -----------------------------------------------------
+-- Data for table `sc_tccProfileTracer`.`Cliente`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `sc_tccProfileTracer`;
+INSERT INTO `sc_tccProfileTracer`.`Cliente` (`cli_id`, `cli_nome`, `cli_referencia`, `cli_dtNasc`, `cli_email`, `usu_id`, `cli_estCivil`, `cli_apelido`, `cli_id_indicador`) VALUES (1, 'cli Padrao', NULL, NULL, NULL, 1, NULL, NULL, NULL);
+INSERT INTO `sc_tccProfileTracer`.`Cliente` (`cli_id`, `cli_nome`, `cli_referencia`, `cli_dtNasc`, `cli_email`, `usu_id`, `cli_estCivil`, `cli_apelido`, `cli_id_indicador`) VALUES (2, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL);
 
 COMMIT;
 
