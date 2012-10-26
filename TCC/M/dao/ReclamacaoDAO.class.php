@@ -153,12 +153,14 @@ class ReclamacaoDAO {
             $sql.=  " AND r.rec_status = '".$rec_status."'";             
         }
         
-        if(isset($rec_autor) and $rec_autor != "") {
-            $sql.=  " AND cli.cli_id = '".$rec_autor."'";             
+        //rec_autor e cat_reclamacao nao existem como variaveis, ver se a descricao funciona, se nao comparar com ids
+        
+        if(isset($cliente_id) and $cliente_id != "") {
+            $sql.=  " AND cli.cli_id = '".$cliente_id."'";             
         }                                                                   
         
-        if(isset($cat_reclamacao) and $cat_reclamacao != "") {
-            $sql.=  " AND cat.cat_id = ".$cat_reclamacao;             
+        if(isset($categoria_id) and $categoria_id != "") {
+            $sql.=  " AND cat.cat_id = ".$categoria_id;             
         }
                                                                    
         $sql.= " ORDER BY cli.cli_nome ";        
