@@ -14,13 +14,13 @@ class PreferenciaClienteDAO {
            cli_id, perg_id, resp_id, pref_opcao, pref_comentario
            ) 
            VALUES(
-               , ".$preferencia->getCli_ID()."
+                ".$preferencia->getCli_ID()."
                , ".$preferencia->getPerg_ID()."
                , ".$preferencia->getResp_ID()."  
                , ".$preferencia->getPref_Opcao()."              
                , '".$preferencia->getPref_Comentario()."'
            )";
-      
+     
         $query = mysql_query($sql,$this->conexao);
        
         return $query;
@@ -55,6 +55,17 @@ class PreferenciaClienteDAO {
         $query = mysql_query($sql,$this->conexao);
 
         return $query; 
+    }
+    
+    function delete_cliente($preferencia){
+        $sql =" delete from PreferenciaCliente
+                where 
+                    cli_id =  ".$preferencia->getCli_ID();
+        
+
+        $query = mysql_query($sql,$this->conexao);
+
+        return $query;      
     }
         
     function getPreferencias_all(){
@@ -130,8 +141,8 @@ class PreferenciaClienteDAO {
                     INNER JOIN resposta r ON r.resp_id = pc.resp_id";
         $sql.= $where; 
          
-        $sql.= ") ORDER BY perg_id, pref_opcao";        
-
+        $sql.= ") ORDER BY perg_id, pref_opcao";
+        
         $preferencias = array();
   
         $query = mysql_query($sql,$this->conexao);
