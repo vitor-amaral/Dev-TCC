@@ -1,0 +1,81 @@
+ {include file="menu.html"}           
+<html>
+    {literal}
+    <head>
+        <title>Produtos</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/processo.css">
+        
+        <script type="text/javascript" language="JavaScript" src="../V/js/bootstrap.js"></script>     
+        
+        <script type="text/javascript" >
+
+            $(function(){
+                $("[rel=tooltip]").tooltip();
+            });
+                    
+           function abreListagem(){
+                window.location.href="listaProdutos.php";
+            }
+        </script>
+                    
+    </head>
+    {/literal}
+    <body>
+        <div id="conteudo" {if $totalProdutos > 10} style='height:100%;' {/if}>
+            <div class="container1">   
+                    {if $ret eq 'sa'}
+                            <span class="label label-success">SUCESSO</span>
+                            <span> O produto foi Alterado com Sucesso!</span>
+                     {/if}
+                     {if $ret eq 'sc'}
+                            <span class="label label-success">SUCESSO</span>
+                            <span>O produto foi Cadastrado com Sucesso!</span>
+                     {/if}
+                    {if $ret eq 'ea'}
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel Alterar.</span>
+                    {/if}                     
+                    {if $ret eq 'ec'}
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel Cadastrar. </span>
+                    {/if                                    
+                    <fieldset id="tabelaCadastro">                                  
+                        <legend id="textoNavegacao">&nbsp;&nbsp;Produto :: {$msg}</legend>
+                        <form class="well form-search" name="formProduto" id="formProduto" method="POST" action="salvaProduto.php">
+                                <div class="control-group">
+                                    <input type="hidden" name="Save" id="Save" value="{$Save}" />     
+                                    <input type="hidden" name="idProduto" id="idProduto" value="{$produto->getPro_ID()}" />
+                                    <div>
+                                        <label for="nomeProduto" class="control-label" style="font-size:13px;">Produto:</label>
+                                        <input type="text" id="nomeProduto" name="nomeProduto" class="input-xlarge arrendondaInputSelect" value="{$produto->getPro_Nome()}">
+
+                                        <label for="precoProduto" class="control-label" style="font-size:13px;margin-left:10px;">Preço:</label>
+                                        <div class="input-prepend input-append">
+                                            <span class="add-on arrendondaInputSelect">R$</span>
+                                            <input id="precoProduto" name="precoProduto" class="input-small arrendondaInputSelect" type="text" size="16" value="{$produto->getPro_Preco()}">            
+                                        </div>  
+                                    </div>
+                                    <div>
+                                        <br/>    
+                                        <label for="tipoProduto" class="control-label" style="font-size:13px;">Tipo de Produto:</label>
+                                        <select id="tipoProduto" name="tipoProduto" class="arrendondaInputSelect">
+                                            <option value="">::Selecione::</option>                                                                                                
+                                                <option value="1" {if $produto->getPro_Tipo() eq 1} selected='selected' {/if} >Alimento</option> 
+                                                <option value="2" {if $produto->getPro_Tipo() eq 2} selected='selected' {/if}  >Bebida</option> 
+                                                <option value="3" {if $produto->getPro_Tipo() eq 3} selected='selected' {/if}  >Outros</option>                                                                                                  
+                                        </select>
+                                    </div>
+                                    <br/>                                        
+                                </div>                               
+                                <button class="btn btn-primary" type="submit">{$nomeBotao}</button>     
+                            
+                        </form>
+                        <button class="btn" onclick="return abreListagem();">Voltar para Listagem</button>
+                    </fieldset>                                 
+           </div>
+        </div>   
+    </body>
+</html>

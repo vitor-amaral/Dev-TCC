@@ -1,7 +1,11 @@
 <?php
 
 class Produto {
-    private $pro_id, $pro_nome, $pro_preco, $pro_tipo;
+    private $pro_id, $pro_nome, $pro_preco, $pro_tipo, $pro_tipo_desc;
+    
+    public function getPro_Tipo_Desc(){
+        return $this->pro_tipo_desc;
+    }
     
     public function getPro_ID(){
         return $this->pro_id;
@@ -19,6 +23,11 @@ class Produto {
         return $this->pro_tipo;
     }
     
+    
+    public function setPro_Tipo_Desc($pro_tipo_desc) {
+        $this->pro_tipo_desc = $pro_tipo_desc;
+    }
+    
     public function setPro_ID($pro_id) {
         $this->pro_id = $pro_id;
     }
@@ -33,6 +42,18 @@ class Produto {
 
     public function setPro_Tipo($pro_tipo) {
         $this->pro_tipo = $pro_tipo;
+        
+        switch ($pro_tipo) {
+            case 1:
+                $this->pro_tipo_desc = "Alimento";
+                break;
+            case 2:
+                $this->pro_tipo_desc = "Bebida";
+                break;
+            case 3:
+                $this->pro_tipo_desc = "Outros";
+                break;    
+        }
     }
     
 }
