@@ -109,6 +109,40 @@ class AmbienteDAO {
         }
         return $ambientes;
     }
+    
+        function getAmbienteByFiltro($nomeAmbiente,$descAmbiente){
+       
+        $sql = "
+            SELECT 
+                amb_id
+                ,amb_descricao
+                ,amb_nome
+            FROM ambiente                                   
+                WHERE 1";
+                
+         if(isset($nomeAmbiente) and $nomeAmbiente != "") {
+            $sql.=  " AND amb_nome like '%".$nomeAmbiente."%'";             
+        }
+        
+        if(isset($descAmbiente) and $descAmbiente != "") {
+            $sql.=  " AND amb_descricao like '%".$descAmbiente."%'";             
+        }                                
+         
+        $sql.= " ORDER BY amb_nome ";   
+                   
+        $ambientes = array();
+            
+        $query = mysql_query($sql,$this->conexao);
+        while($rows = mysql_fetch_array($query)) {
+            $ambiente = new Ambiente;
+            $ambiente->setAmb_ID($rows['amb_id']);
+            $ambiente->setAmb_Descricao($rows['amb_descricao']);
+            $ambiente->setAmb_Nome($rows['amb_nome']);  
+
+            $ambientes[] = $ambiente;
+        }
+        return $ambientes;
+    }
 
 }
 

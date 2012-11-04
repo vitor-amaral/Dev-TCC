@@ -1,0 +1,70 @@
+ {include file="menu.html"}           
+<html>
+    {literal}
+    <head>
+        <title>Ambientes</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/processo.css">
+        
+        <script type="text/javascript" language="JavaScript" src="../V/js/jquery.js"></script>
+                             
+        <script type="text/javascript" language="JavaScript" src="../V/js/bootstrap-collapse.js"></script>
+        <script type="text/javascript" language="JavaScript" src="../V/js/bootstrap-tooltip.js"></script>
+                      
+        <script type="text/javascript" language="JavaScript" src="../V/js/jquery.maskedinput.js"></script>
+        
+        <script type="text/javascript" >            
+           
+           function abreListagem(){
+                window.location.href="listaAmbientes.php";
+            }
+        </script>
+        
+    </head>
+    {/literal}
+    <body>
+        <div id="conteudo" {if $totalAmbientes > 10} style='height:100%;' {/if}>
+            <div class="container1">  
+                    {if $ret eq 'sa'}
+                            <span class="label label-success">SUCESSO</span>
+                            <span> O ambiente foi Alterado com Sucesso!</span>
+                     {/if}
+                     {if $ret eq 'sc'}
+                            <span class="label label-success">SUCESSO</span>
+                            <span>O ambiente foi Cadastrado com Sucesso!</span>
+                     {/if}
+                    {if $ret eq 'ea'}
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel Alterar.</span>
+                    {/if}                     
+                    {if $ret eq 'ec'}
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel Cadastrar. </span>
+                    {/if}                                    
+                    <fieldset id="tabelaCadastro">                                  
+                        <legend id="textoNavegacao">&nbsp;&nbsp;Ambiente :: {$msg}</legend>
+                        <form class="well form-search" name="formAmbiente" id="formAmbiente" method="POST" action="salvaAmbiente.php">
+                                <div class="control-group">
+                                    <input type="hidden" name="Save" id="Save" value="{$Save}" />     
+                                    <input type="hidden" name="idAmbiente" id="idAmbiente" value="{$ambiente->getAmb_ID()}" />
+                                        <div class="controls" style="margin-bottom:10px;">  
+                                            <label for="nomeAmbiente" class="control-label" style="font-size:13px;">Ambiente:</label>  
+                                            <input type="text" class="input-xlarge arrendondaInputSelect" id="nomeAmbiente" name="nomeAmbiente" value="{$ambiente->getAmb_Nome()}"/>                                                                
+                                        </div>                                        
+                                        <div class="controls" style="margin-bottom:10px;">     
+                                            <label for="descAmbiente" class="control-label" style="font-size:13px;">Descrição:</label>  
+                                            <textarea class="input-xlarge arrendondaInputSelect" id="descAmbiente" name="descAmbiente" rows="3">{$ambiente->getAmb_Descricao()}</textarea><br/>        
+                                        </div>                                                                                    
+                                    </div>
+                               
+                                <button class="btn btn-primary" type="submit">{$nomeBotao}</button>     
+                            
+                        </form>
+                        <button class="btn" onclick="return abreListagem();">Voltar para Listagem</button>
+                    </fieldset>                           
+           </div>
+        </div>      
+    </body>
+</html>
