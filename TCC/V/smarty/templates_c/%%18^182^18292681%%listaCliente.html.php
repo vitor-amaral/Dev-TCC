@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.26, created on 2012-10-05 04:46:30
+<?php /* Smarty version 2.6.26, created on 2012-11-07 00:50:04
          compiled from listaCliente.html */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'count', 'listaCliente.html', 215, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'count', 'listaCliente.html', 200, false),)), $this); ?>
  <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.html", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
@@ -56,22 +56,7 @@ unset($_smarty_tpl_vars);
            function enviar(){
                $("#formCliente").submit();
 
-           } 
-           
-           //-----------Modal--------------------------------------
-            function abreModal(id) {
-                $(\'#windowTitleDialog\'+id).bind(\'show\', function () {
-                   // document.title = "Modal";
-                });
-            }
-            
-            function closeDialog () {
-                $(\'#windowTitleDialog\').modal(\'hide\');
-            };
-            function okClicked () {
-                document.title = "Modal"; 
-                closeDialog ();
-            };            
+           }   
         </script>
     </head>
     '; ?>

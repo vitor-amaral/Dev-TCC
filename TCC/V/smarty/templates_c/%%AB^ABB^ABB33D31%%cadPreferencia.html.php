@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-10-31 23:18:14
+<?php /* Smarty version 2.6.26, created on 2012-11-10 22:55:20
          compiled from cadPreferencia.html */ ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.html", 'smarty_include_vars' => array()));
@@ -12,16 +12,23 @@ unset($_smarty_tpl_vars);
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="../V/css/processo.css">
-        
-        <script type="text/javascript" language="JavaScript" src="../V/js/jquery.js"></script>
-        <script type="text/javascript" language="JavaScript" src="../V/js/_preferencia.js"></script> 
+        <link rel="stylesheet" type="text/css" href="../V/css/processo.css">                      
+       
+        <script type="text/javascript" language="JavaScript" src="../V/js/jquery.js"></script> 
+        <script type="text/javascript" language="JavaScript" src="../V/js/_preferencia.js"></script>
+        <script type="text/javascript" language="JavaScript" src="../V/js/bootstrap-modal.js"></script> 
+
                 
         <script type="text/javascript">
             function abreListagem(){
                 window.location.href="listaClientes.php";
-            }  
+            }
             
+            function addSinonimo (){
+                alert("baiba");                   
+
+            }
+      
         </script>
     </head>
     '; ?>
@@ -47,9 +54,10 @@ unset($_smarty_tpl_vars);
 " />
                             <input type="hidden" name="idCliente" id="idCliente" value="<?php echo $this->_tpl_vars['idCliente']; ?>
 " />                                
-                                
+                            <p><span class="label">Preferências Objetivas</span></p>   
                             <div class="well" id="fpref" style="border:1px;color:#4D9DA8;border-style:solid; display:none;">
                                 <div class="controls" style="margin-bottom:10px;">
+                                    
                                    <label class="control-label" id="pergunta" for="pergid"></label>
 
                                    <input type="hidden" name="pergid" id="pergid" />
@@ -179,7 +187,137 @@ _<?php echo $this->_tpl_vars['pref']->getPref_Opcao(); ?>
                                 <input type='hidden' name='maiorid' id='maiorid' value='<?php echo $this->_tpl_vars['maiorid']; ?>
 ' />                                    
                             </table>  
-                                             
+        <!----------------------------------------------------------------------------------------------------------------------------------------------------------------> 
+                            <p><span class="label">Preferências Refência</span></p>   
+                            
+                            <table id="tabelaPreferenciaref" class="table tablepref table-bordered table-condensed">
+                                <tr>
+                                    <th>Pergunta</th>
+                                    <th>Resposta</th> 
+                                    <th>Observação</th>                                     
+                                    <th>Ações</th>
+                                </tr>
+                                            
+                                <?php $_from = $this->_tpl_vars['preferenciasref']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }$this->_foreach['loopref'] = array('total' => count($_from), 'iteration' => 0);
+if ($this->_foreach['loopref']['total'] > 0):
+    foreach ($_from as $this->_tpl_vars['prefref']):
+        $this->_foreach['loopref']['iteration']++;
+?>
+                                <?php if ($this->_tpl_vars['prefref']->getPref_Opcao() > 1): ?>
+                                    <tr id="prefref_<?php echo $this->_tpl_vars['prefref']->getPerg_ID(); ?>
+_<?php echo $this->_tpl_vars['prefref']->getPref_Opcao(); ?>
+" class="trdetail">
+                                        <td style="text-align:right;"><?php echo $this->_tpl_vars['prefref']->getPref_Opcao(); ?>
+°</td>
+                                        <td><?php echo $this->_tpl_vars['prefref']->getResp_Valor(); ?>
+</td>
+                                        <td><?php echo $this->_tpl_vars['prefref']->getPref_Comentario(); ?>
+</td>
+                                        <td>
+                                            <a href="#windowTitleDialog" id="<?php echo $this->_tpl_vars['prefref']->getPerg_ID(); ?>
+" onclick="editarref(this);" data-toggle="modal"><i id="edit" class="icon-edit"></i></a>
+                                            <a href='#' id="<?php echo $this->_tpl_vars['prefref']->getPerg_ID(); ?>
+" onclick='excluirref(this);'><i id="trash" class='icon-trash'></i></a>
+                                        </td>
+                                        <input type='hidden' name='pergref[]' id='pergref' value='<?php echo $this->_tpl_vars['prefref']->getPerg_ID(); ?>
+' />
+                                        <input type='hidden' name='pergdescref[]' id='pergdescref' value='<?php echo $this->_tpl_vars['prefref']->getPerg_Descricao(); ?>
+' />
+                                        <input type='hidden' name='catrespref[]' id='catrespref' value='<?php echo $this->_tpl_vars['prefref']->getCatResp_ID(); ?>
+' />
+                                        <input type='hidden' name='catresptab[]' id='catresptab' value='<?php echo $this->_tpl_vars['prefref']->getCatresp_tabReferencia(); ?>
+' />
+                                        <input type='hidden' name='respref[]' id='respref' value='<?php echo $this->_tpl_vars['prefref']->getPref_Resp(); ?>
+' />
+                                        <input type='hidden' name='opref[]' id='opref' value='<?php echo $this->_tpl_vars['prefref']->getPref_Opcao(); ?>
+' />
+                                        <input type='hidden' name='comref[]' id='comref' value='<?php echo $this->_tpl_vars['prefref']->getPref_Comentario(); ?>
+' />
+                                        <input type='hidden' name='idlinharef[]' id='idlinharef' value='prefref_<?php echo $this->_tpl_vars['prefref']->getPerg_ID(); ?>
+_<?php echo $this->_tpl_vars['prefref']->getPref_Opcao(); ?>
+' />
+                                    </tr>
+                                <?php else: ?>
+                                    <tr id="prefref_<?php echo $this->_tpl_vars['prefref']->getPerg_ID(); ?>
+_<?php echo $this->_tpl_vars['prefref']->getPref_Opcao(); ?>
+">
+                                        <td>
+                                            <a href='#' id="<?php echo $this->_tpl_vars['prefref']->getPerg_ID(); ?>
+" onclick='opcoesref(this);'><i id="open" class='icon-chevron-down'></i></a>
+                                            <?php echo $this->_tpl_vars['prefref']->getPerg_Descricao(); ?>
+
+                                        </td>
+                                        <td><?php echo $this->_tpl_vars['prefref']->getResp_Valor(); ?>
+</td> 
+                                        <td><?php echo $this->_tpl_vars['prefref']->getPref_Comentario(); ?>
+</td> 
+                                        <td>
+                                            <a href="#windowTitleDialog" id="<?php echo $this->_tpl_vars['prefref']->getPerg_ID(); ?>
+" onclick="editarref(this);" data-toggle="modal"><i id="edit" class="icon-edit"></i></a>
+                                            <?php if ($this->_tpl_vars['prefref']->getPref_Resp() != ''): ?> 
+                                                <a href='#windowTitleDialog' id="<?php echo $this->_tpl_vars['prefref']->getPerg_ID(); ?>
+" onclick='adicionaref(this);' data-toggle="modal"><i id="plus" class='icon-plus'></i></a>
+                                            <?php endif; ?>
+                                        </td>
+                                        <input type='hidden' name='pergref[]' id='pergref' value='<?php echo $this->_tpl_vars['prefref']->getPerg_ID(); ?>
+' />
+                                        <input type='hidden' name='pergdescref[]' id='pergdescref' value='<?php echo $this->_tpl_vars['prefref']->getPerg_Descricao(); ?>
+' />
+                                        <input type='hidden' name='catrespref[]' id='catrespref' value='<?php echo $this->_tpl_vars['prefref']->getCatResp_ID(); ?>
+' />
+                                        <input type='hidden' name='catresptab[]' id='catresptab' value='<?php echo $this->_tpl_vars['prefref']->getCatresp_tabReferencia(); ?>
+' />
+                                        <input type='hidden' name='respref[]' id='respref' value='<?php echo $this->_tpl_vars['prefref']->getPref_Resp(); ?>
+' />  
+                                        <input type='hidden' name='opref[]' id='opref' value='<?php echo $this->_tpl_vars['prefref']->getPref_Opcao(); ?>
+' />
+                                        <input type='hidden' name='comref[]' id='comref' value='<?php echo $this->_tpl_vars['prefref']->getPref_Comentario(); ?>
+' />
+                                        <input type='hidden' name='idlinharef[]' id='idlinharef' value='prefref_<?php echo $this->_tpl_vars['prefref']->getPerg_ID(); ?>
+_<?php echo $this->_tpl_vars['prefref']->getPref_Opcao(); ?>
+' />
+                                    </tr>
+                                <?php endif; ?>   
+                                <?php endforeach; endif; unset($_from); ?>
+                                <input type="hidden" name="nomeLiref" id="nomeLiref" value=""/>
+                                <input type='hidden' name='totalref' id='totalref' value='<?php echo $this->_tpl_vars['totalref']; ?>
+' />
+                                <input type='hidden' name='maioridref' id='maioridref' value='<?php echo $this->_tpl_vars['maioridref']; ?>
+' />                                    
+                            </table>
+                                
+                                
+                                
+                          <div id="windowTitleDialog" class="modal hide fade">
+                            <div class="modal-header">
+                                <a data-dismiss="modal" class="close" href="#">×</a>
+                                <h5>Edita Preferência Referência</h5>  
+                            </div>
+                            <div class="modal-body" style="overflow:auto;height:400px;">  
+                                <div class="divDialogElements">
+                                    <label class="control-label" id="perguntaref" for="pergidref"></label>
+                                    <input type="hidden" name="pergidref" id="pergidref" />
+                                    <input type="hidden" name="catrespref" id="catrespref" />
+                                    <input type="hidden" name="catresptab" id="catresptab" />
+                                </div>
+                                <div id="retorno" class="divDialogElements">
+                                    <!-- tabela com as opções que podem ser selecionadas - carregada por ajax-->   
+                                </div>
+                                <div class="divDialogElements">                                     
+                                    <label for="opcaoref" class="control-label" >Prioridade/Opção:</label>
+                                    <input type="text" id="opcaoref" name="opcaoref" class="input-small arrendondaInputSelect" disabled/>
+                                    </br></br>                               
+                                    <label for="comentarioref" class="control-label" >Observação:</label>
+                                    <textarea  id="comentarioref" name="comentarioref" class="input-xlarge"></textarea>                                            
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn" data-dismiss="modal" aria-hidden="true">Sair</button>
+                                <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" onClick="salvaref()">Salvar</button>
+                            </div>
+                           </div>
+                                                           
+                                                                      
                         </div>
                         <div>
                             <button class="btn btn-primary" type="submit"><?php echo $this->_tpl_vars['nomeBotao']; ?>
