@@ -21,6 +21,7 @@ class PreferenciaClienteRefDAO {
                , ".$preferencia->getPref_Resp()." 
            )";
      
+     echo($sql);
         $query = mysql_query($sql,$this->conexao);
        
         return $query;

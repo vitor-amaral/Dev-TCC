@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-09-18 17:42:37
+<?php /* Smarty version 2.6.26, created on 2012-11-10 22:58:44
          compiled from listaAmbiente.html */ ?>
  <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.html", 'smarty_include_vars' => array()));
@@ -66,11 +66,12 @@ unset($_smarty_tpl_vars);
                         <form class="well form-search" name="formAmbiente" id="formAmbiente" method="POST" action="listaAmbientes.php">
                                 <div class="control-group">
                                     <div class="controls" style="margin-bottom:10px;">
-                                    <label for="" class="control-label" style="font-size:13px;">Ambiente:</label>  
-                                    <input type="text" class="input-xlarge arrendondaInputSelect mcg" id=""/>                                
+                                    <label for="nomeAmbiente" class="control-label" style="font-size:13px;">Ambiente:</label>  
+                                    <input type="text" class="input-xlarge arrendondaInputSelect" id="nomeAmbiente" name="nomeAmbiente" value="<?php echo $this->_tpl_vars['nomeAmbiente']; ?>
+"/>
                                     <br/><br/>
-                                    <label for="" class="control-label" style="font-size:13px;">Descrição:</label>  
-                                    <textarea class="input-xlarge mcg" id="descMsg" rows="3"></textarea></br>                                                
+                                    <label for="descAmbiente" class="control-label" style="font-size:13px;">Descrição:</label>  
+                                    <textarea class="input-xlarge mcg" id="descAmbiente" rows="3"></textarea></br>                                                
                                     <br/>
                                         <button type="submit" onclick="enviar();" class="btn">Procurar</button>
                                     </div>
@@ -78,27 +79,32 @@ unset($_smarty_tpl_vars);
                            </form>
                     </fieldset>
 
-                    <button onclick="return abreNovo();" class="btn btn-info">Novo Usuario</button>
+                    <button onclick="return abreNovo();" class="btn btn-info">Novo Ambiente</button>
                     <div class="grid">                        
                           <table class="table table-striped table-bordered table-condensed"> 
                               <tr>
-                                  <th></th>
-                                  <th></th> 
-                                  <th></th>                                                               
+                                  <th>Ambiente</th>
+                                  <th>Descrição</th>                                                             
                                   <th class=tdBotao>Editar</th>
                                   <th class=tdBotao>Excluir</th>
                               </tr> 
                               
-
+                              <?php $_from = $this->_tpl_vars['ambientes']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['ambiente']):
+?>
                               
                               <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>           
-                                  <td><a href="#" rel="tooltip" onclick="return editar('');"  title="Clique para Editar este Ambiente"><i class="icon-edit"></i></a></td>                                  
-                                  <td><a href="#" rel="tooltip" onclick="return excluir('');" title="Clique para Excluir este Ambiente"><i class="icon-trash"></i></a></td>
+                                  <td><?php echo $this->_tpl_vars['ambiente']->getAmb_Nome(); ?>
+</td>
+                                  <td><?php echo $this->_tpl_vars['ambiente']->getAmb_Descricao(); ?>
+</td>                                                                
+                                  <td><a href="#" rel="tooltip" onclick="return editar('<?php echo $this->_tpl_vars['ambiente']->getAmb_ID(); ?>
+');"  title="Clique para Editar este Ambiente"><i class="icon-edit"></i></a></td>                                  
+                                  <td><a href="#" rel="tooltip" onclick="return excluir('<?php echo $this->_tpl_vars['ambiente']->getAmb_ID(); ?>
+');" title="Clique para Excluir este Ambiente"><i class="icon-trash"></i></a></td>
                               </tr>
                               
+                              <?php endforeach; endif; unset($_from); ?>
 
                           </table>
                     </div>
@@ -106,4 +112,4 @@ unset($_smarty_tpl_vars);
                 </div>
            </div>
     </body>
-</html>
+</html>
