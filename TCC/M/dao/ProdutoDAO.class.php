@@ -159,9 +159,14 @@ class ProdutoDAO {
 	function getProdutoByTipo($pro_tipo){
        
         $sql = "
-            select * from produto
-                where pro_tipo like '%$pro_tipo%' 
-            order by pro_tipo ";
+            SELECT 
+                    pro_nome
+                    ,pro_preco
+                    ,pro_tipo
+                    ,pro_id                    
+                from produto
+                where pro_tipo = '".$pro_tipo."' 
+             ";
 
         $query = mysql_query($sql,$this->conexao);
         while($rows = mysql_fetch_array($query)) {

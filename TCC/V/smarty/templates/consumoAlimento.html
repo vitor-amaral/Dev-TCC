@@ -1,0 +1,57 @@
+ {include file="menu.html"}           
+<html>
+    {literal}
+    <head>
+        <title>Consumo Alimentos</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/processo.css">
+        
+        <script type="text/javascript" language="JavaScript" src="../V/js/bootstrap.js"></script>     
+        
+        <script type="text/javascript" >
+
+            $(function(){
+                $("[rel=tooltip]").tooltip();
+            });                    
+                                 
+           function enviar(){
+               $("#formConsumoAlimento").submit();
+
+           }
+                      
+        </script>
+                    
+    </head>
+    {/literal}
+    <body>
+        <div id="conteudo"  style='height:100%;' >
+            <div class="container1">                                                               
+                    <fieldset id="tabelaGrafico">
+                        <legend id="textoNavegacao">&nbsp;&nbsp;Gerar Gráfico de Consumo</legend>
+                        <form class="well form-search" name="formConsumoAlimento" id="formConsumoAlimento" method="POST" target="_blank" action="imprimeGrafico.php">
+                                <div class="control-group">
+                                    <div class="controls" style="margin-bottom:10px;">
+                                        <div>                                  
+                                            <label for="alimento" class="control-label" style="font-size:13px;">Alimento:</label>
+                                            <select id="alimento" name="alimento" class="arrendondaInputSelect">
+                                                <option value="">::Selecione Lista::</option>
+                                                {foreach from=$alimentos item=alimento}
+                                                    <option value="{$alimento->getPro_ID()}" {if $alimento->getPro_ID() eq $alimento} selected='selected' {/if} >
+                                                        {$alimento->getPro_Nome()}
+                                                    </option>                                                
+                                                 {/foreach}   
+                                            </select>                                            
+                                        </div>                                        
+                                            <br/>         
+                                            <button type="submit" onclick="enviar();" class="btn">Gerar</button>
+                                            
+                                    </div>
+                                </div>
+                           </form>
+                    </fieldset>                           
+           </div>
+        </div>   
+    </body>
+</html>
