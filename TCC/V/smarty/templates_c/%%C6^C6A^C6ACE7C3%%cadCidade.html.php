@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-09-18 18:53:30
+<?php /* Smarty version 2.6.26, created on 2012-11-14 00:19:25
          compiled from cadCidade.html */ ?>
 <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.html", 'smarty_include_vars' => array()));
@@ -51,7 +51,7 @@ unset($_smarty_tpl_vars);
                             <input type="hidden" name="idCidade" id="idCidade" value="<?php echo $this->_tpl_vars['cidade']->getCidade_ID(); ?>
 " />
                             <div class="controls" style="margin-bottom:10px;">
-                                <label for="nomeCidade" class="control-label" style="font-size:13px;">Nome Cidade:</label>
+                                <label for="nomeCidade" class="control-label">Nome Cidade:</label>
                                 <input type="text" id="nomeCidade" name="nomeCidade" class="input-xlarge arrendondaInputSelect" value="<?php echo $this->_tpl_vars['cidade']->getCidade_Nome(); ?>
 ">
                             </div>
@@ -68,4 +68,4 @@ unset($_smarty_tpl_vars);
          </div>
        </div>
     </body>
-</html>
+</html>

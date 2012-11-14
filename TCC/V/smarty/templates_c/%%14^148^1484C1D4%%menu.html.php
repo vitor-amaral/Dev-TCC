@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-10-20 18:17:40
+<?php /* Smarty version 2.6.26, created on 2012-11-14 00:44:05
          compiled from menu.html */ ?>
 <!doctype html>
 <!--[if lt IE 7 ]> <html class="no-js ie6" dir="ltr" lang="en-US"> <![endif]-->
@@ -61,7 +61,7 @@
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Clientes<b class="caret"></b></a>
                                     <ul class="dropdown-menu"> 
                                         <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="listaClientes.php">Gerenciar</a></li> 
-                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="#">Frequencia</a></li>
+                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="listaFrequencia.php">Frequencia</a></li>
                                         <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="#">Pedidos</a></li>
                                     </ul>
                                 </li>

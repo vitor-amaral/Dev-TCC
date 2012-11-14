@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-09-18 21:28:46
+<?php /* Smarty version 2.6.26, created on 2012-11-14 00:19:18
          compiled from listaCidade.html */ ?>
  <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.html", 'smarty_include_vars' => array()));
@@ -64,7 +64,7 @@ unset($_smarty_tpl_vars);
                         <form class="well form-search" name="formCidade" id="formCidade" method="POST" action="listaCidades.php">
                                 <div class="control-group">
                                     <div class="controls" style="margin-bottom:10px;">
-                                        <label for="nomeCidade" class="control-label" style="font-size:13px;">Cidade:</label>
+                                        <label for="nomeCidade" class="control-label" >Cidade:</label>
                                         <input type="text" id="nomeCidade" name="nomeCidade" class="input-xlarge arrendondaInputSelect" value="<?php echo $this->_tpl_vars['nomeCidade']; ?>
 ">      
  
