@@ -1,0 +1,119 @@
+{include file="menu.html"}    
+<html>
+    {literal}
+    <head>
+        <title>Pedidos</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/processo.css">
+        <script type="text/javascript" language="JavaScript" src="../V/js/bootstrap.js"></script>     
+        
+        <script type="text/javascript" language="JavaScript" src="../V/js/bootstrap-collapse.js"></script>
+        <script type="text/javascript" language="JavaScript" src="../V/js/bootstrap-tooltip.js"></script>
+                      
+        <script type="text/javascript" language="JavaScript" src="../V/js/jquery.maskedinput.js"></script>
+        
+        <script type="text/javascript">
+            function abreListagem(){
+                window.location.href="listaPedidos.php";
+            }
+            
+            $(function(){
+                $("[rel=tooltip]").tooltip();
+                $("#dataPedido").mask("99/99/9999");                 
+            });
+        </script>
+    </head>
+    {/literal}
+    <body>
+        <div id="conteudo">
+            <div class="container1">
+                <div class="asdf">
+                    {if $ret eq 'sa'}
+                            <span class="label label-success">SUCESSO</span>
+                            <span> O pedido foi Alterado com Sucesso!</span>
+                     {/if}
+                     {if $ret eq 'sc'}
+                            <span class="label label-success">SUCESSO</span>
+                            <span>O pedido foi Cadastrado com Sucesso!</span>
+                     {/if}
+                    {if $ret eq 'ea'}
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel Alterar.</span>
+                    {/if}                     
+                    {if $ret eq 'ec'}
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel Cadastrar. </span>
+                    {/if}                     
+                <fieldset id="tabelaCadastro">
+                        <legend id="textoNavegacao">&nbsp;&nbsp;Gerenciar Pedidos</legend>
+                        <form class="well form-search" name="formPedido" id="formPedido" method="POST" action="salvaPedido.php">
+                                <div class="control-group">
+                                    <div class="controls" style="margin-bottom:10px;">
+                                        <div>                                  
+                                            <label for="autorPedido" class="control-label" style="font-size:13px;">Cliente:</label>
+                                            <select id="autorPedido" name="autorPedido" class="arrendondaInputSelect">
+                                                <option value="">::Selecione Lista::</option>
+                                                {foreach from=$clientes item=cliente}
+                                                    <option value="{$cliente->getCli_ID()}" {if $cliente->getCli_ID() eq $pedido->getCli_ID()} selected='selected' {/if} >
+                                                        {$cliente->getCli_nome()}
+                                                    </option>                                                
+                                                 {/foreach}   
+                                            </select> 
+                                            <br/><br/>
+                                        </div>
+                                        <div>
+                                            <label for="nomeAlimento" class="control-label" style="font-size:13px;">Alimentos:</label>
+                                            <select id="nomeAlimento" name="nomeAlimento" class="arrendondaInputSelect">
+                                                <option value="">::Selecione Lista::</option>
+                                                {foreach from=$alimentos item=alimento}
+                                                    <option value="{$alimento->getPro_ID()}" {if $alimento->getPro_ID() eq $pedido->getPro_ID()} selected='selected' {/if} >
+                                                        {$alimento->getPro_nome()}
+                                                    </option>                                                
+                                                 {/foreach}   
+                                            </select>
+                                            <label for="nomeBebida" class="control-label" style="font-size:13px;">Bebidas:</label>
+                                            <select id="nomeBebida" name="nomeBebida" class="arrendondaInputSelect">
+                                                <option value="">::Selecione Lista::</option>
+                                                {foreach from=$bebidas item=bebida}
+                                                    <option value="{$bebida->getPro_ID()}" {if $bebida->getPro_ID() eq $pedido->getPro_ID()} selected='selected' {/if} >
+                                                        {$bebida->getPro_nome()}
+                                                    </option>                                                
+                                                 {/foreach}   
+                                            </select> 
+                                            <label for="nomeOutros" class="control-label" style="font-size:13px;">Outros:</label>
+                                            <select id="nomeOutros" name="nomeOutros" class="arrendondaInputSelect">
+                                                <option value="">::Selecione Lista::</option>
+                                                {foreach from=$outros item=outro}
+                                                    <option value="{$outro->getPro_ID()}" {if $outro->getPro_ID() eq $pedido->getPro_ID()} selected='selected' {/if} >
+                                                        {$outro->getPro_nome()}
+                                                    </option>                                                
+                                                 {/foreach}   
+                                            </select> 
+                                            <br/><br/>                                         
+                                        </div>       
+                                        <div>
+                                            <label for="qtdeProduto" class="control-label" style="font-size:13px;">Quantidade:</label>
+                                            <input type="text" id="qtdeProduto" name="qtdeProduto" class="input-small arrendondaInputSelect" value="{$pedido->getPro_Qtde()}">
+                                            <label for="dataPedido" class="control-label" style="font-size:13px;">Data:</label>
+                                            <input type="text" id="dataPedido" name="dataPedido" class="input-small arrendondaInputSelect" value="{$pedido->getPed_Data()}">
+                                        </div>
+                                        <div> 
+                                            <br/>   
+                                            <label>Comentário:</label>
+                                            <textarea class="input-xlarge arrendondaInputSelect" id="comentPedido" name="comentPedido" rows="3">{$pedido->getPed_Coment()}</textarea><br/>
+                                        </div>                                              
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary" type="submit">{$nomeBotao}</button>     
+                                </div><br/>
+                                <button class="btn" onclick="return abreListagem();">Voltar para Listagem</button>
+                           </form>
+                    </fieldset>                              
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
