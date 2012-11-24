@@ -50,6 +50,8 @@
                         <legend id="textoNavegacao">&nbsp;&nbsp;Gerenciar Pedidos</legend>
                         <form class="well form-search" name="formPedido" id="formPedido" method="POST" action="salvaPedido.php">
                                 <div class="control-group">
+                                    <input type="hidden" name="Save" id="Save" value="{$Save}" />
+                                    <input type="hidden" name="idPedido" id="idPedido" value="{$pedido->getPed_ID()}" />
                                     <div class="controls" style="margin-bottom:10px;">
                                         <div>                                  
                                             <label for="autorPedido" class="control-label" style="font-size:13px;">Cliente:</label>
@@ -101,16 +103,16 @@
                                         </div>
                                         <div> 
                                             <br/>   
-                                            <label>Comentário:</label>
+                                            <label for="comentPedido" class="control-label" style="font-size:13px;">Comentário:</label>
                                             <textarea class="input-xlarge arrendondaInputSelect" id="comentPedido" name="comentPedido" rows="3">{$pedido->getPed_Coment()}</textarea><br/>
                                         </div>                                              
                                     </div>
                                 </div>
                                 <div>
                                     <button class="btn btn-primary" type="submit">{$nomeBotao}</button>     
-                                </div><br/>
-                                <button class="btn" onclick="return abreListagem();">Voltar para Listagem</button>
+                                </div><br/>                                
                            </form>
+                           <button class="btn" onclick="return abreListagem();">Voltar para Listagem</button>
                     </fieldset>                              
                 </div>
             </div>

@@ -16,7 +16,7 @@ class ProdutoPedido {
     }
 
     public function getProped_Comentario() {
-        return $this->proped_cometario;
+        return $this->proped_comentario;
     }
     
     public function setPro_ID($pro_id) {

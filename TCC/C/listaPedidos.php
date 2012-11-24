@@ -10,11 +10,10 @@ require_once("../M/classes/Cliente.class.php");
 require_once("../M/dao/ClienteDAO.class.php");
 
 $con = new Conexao();
-
 $DAO = new PedidoDAO($con->getConexao());
          
 $idProduto = "";         
-                     
+
 if(isset($_REQUEST['autorPedido'])){
     $autorPedido = $_REQUEST['autorPedido'];    
     $smarty->assign("autorPedido",$autorPedido);

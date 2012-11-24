@@ -11,11 +11,15 @@ class ProdutoPedidoDAO {
         
         $sql="
            INSERT INTO produtopedido(
-               proped_qtde
+               ped_id
+               ,pro_id
+               ,proped_qtde
                ,proped_comentario
            ) 
            VALUES(
-               ".$produtopedido->getProped_Qtde()."
+               ".$produtopedido->getPed_ID()."
+               , '".$produtopedido->getPro_ID()."'
+               , '".$produtopedido->getProped_Qtde()."'
                , '".$produtopedido->getProped_Comentario()."'
            )";
       
@@ -30,7 +34,7 @@ class ProdutoPedidoDAO {
         $sql="
            UPDATE produtopedido SET
                proped_qtde = ".$produtopedido->getProped_Qtde()."
-               , produtopedido = '".$produtopedido->getProped_Comentario()."'
+               , proped_comentario = '".$produtopedido->getProped_Comentario()."' 
            WHERE 
                pro_id =  ".$produtopedido->getPro_ID()."
 		   AND ped_id =  ".$produtopedido->getPed_ID()." ";

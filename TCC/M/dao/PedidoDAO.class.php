@@ -9,8 +9,8 @@ class PedidoDAO {
     
     function inserir($pedido){
         
-        if($evento->getPed_Data() != "")               
-            $data = implode("-",array_reverse(explode("/",$evento->getPed_Data())));
+        if($pedido->getPed_Data() != "")               
+            $data = implode("-",array_reverse(explode("/",$pedido->getPed_Data())));
         else
            $data = null;
         
@@ -20,21 +20,31 @@ class PedidoDAO {
                ,cli_id
            ) 
            VALUES(
-               '".$pedido->getPed_Data()."'
+               '".$data."'
                , ".$pedido->getCli_ID()."
            )";
       
-        $query = mysql_query($sql,$this->conexao);
-       
-        return $query;
+        //Retorna o ID do pedido novo
+            if (mysql_query($sql,$this->conexao)){
+               $ultimo_id = mysql_insert_id($this->conexao);
+               return $ultimo_id;
+            }else{
+               return "0";
+            } 
+        
     }
     
     
     function alterar($pedido){
         
+        if($pedido->getPed_Data() != "")               
+            $data = implode("-",array_reverse(explode("/",$pedido->getPed_Data())));
+        else
+           $data = null;
+        
         $sql="
            UPDATE pedido SET
-               ped_data = '".$pedido->getPed_Data()."'
+               ped_data = '".$data."'
                , cli_id = ".$pedido->getCli_ID()."
            WHERE 
                ped_id =  ".$pedido->getPed_ID()." ";
@@ -51,7 +61,7 @@ class PedidoDAO {
 
         return $query;
     }
-    
+                          
     function getPedidos(){
         $sql = "SELECT 
 					ped_id
