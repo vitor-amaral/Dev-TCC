@@ -49,10 +49,10 @@
                                     <input type="hidden" name="Save" id="Save" value="{$Save}" />     
                                     <input type="hidden" name="idProduto" id="idProduto" value="{$produto->getPro_ID()}" />
                                     <div>
-                                        <label for="nomeProduto" class="control-label" style="font-size:13px;">Produto:</label>
+                                        <label for="nomeProduto" class="control-label" style="font-size:13px;">Produto(*):</label>
                                         <input type="text" id="nomeProduto" name="nomeProduto" class="input-xlarge arrendondaInputSelect" value="{$produto->getPro_Nome()}">
 
-                                        <label for="precoProduto" class="control-label" style="font-size:13px;margin-left:10px;">Preço:</label>
+                                        <label for="precoProduto" class="control-label" style="font-size:13px;margin-left:10px;">Preço(*):</label>
                                         <div class="input-prepend input-append">
                                             <span class="add-on arrendondaInputSelect">R$</span>
                                             <input id="precoProduto" name="precoProduto" class="input-small arrendondaInputSelect" type="text" size="16" value="{$produto->getPro_Preco()}">            
@@ -60,7 +60,7 @@
                                     </div>
                                     <div>
                                         <br/>    
-                                        <label for="tipoProduto" class="control-label" style="font-size:13px;">Tipo de Produto:</label>
+                                        <label for="tipoProduto" class="control-label" style="font-size:13px;">Tipo de Produto(*):</label>
                                         <select id="tipoProduto" name="tipoProduto" class="arrendondaInputSelect">
                                             <option value="">::Selecione::</option>                                                                                                
                                                 <option value="1" {if $produto->getPro_Tipo() eq 1} selected='selected' {/if} >Alimento</option> 

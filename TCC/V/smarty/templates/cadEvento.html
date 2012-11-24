@@ -56,21 +56,21 @@
                                     <input type="hidden" name="Save" id="Save" value="{$Save}" />     
                                     <input type="hidden" name="idEvento" id="idEvento" value="{$evento->getEv_ID()}" />
                                         <div class="controls" style="margin-bottom:10px;">  
-                                            <label>Título</label> 
+                                            <label>Título(*):</label> 
                                             <input type="text" class="input-xlarge arrendondaInputSelect" id="nomeEvento" name="nomeEvento" value="{$evento->getEv_Nome()}"/>                    
-                                            <label>Tema</label>
+                                            <label>Tema:</label>
                                             <input type="text" class="input-xlarge arrendondaInputSelect" id="temaEvento" name="temaEvento" value="{$evento->getEv_Tema()}"/>                    
                                         </div>
                                         <div class="controls" style="margin-bottom:10px;">     
-                                            <label>Data Evento</label>
+                                            <label>Data Evento(*):</label>
                                             <input type="text" class="input-small arrendondaInputSelect" id="dtEvento" name="dtEvento" value="{$evento->getEv_Data()}"/>                                                                                    
                                         </div> 
                                         <div class="controls" style="margin-bottom:10px;">     
-                                            <label>Hora Evento</label>
+                                            <label>Hora Evento(*):</label>
                                             <input type="text" class="input-small arrendondaInputSelect" id="hrEvento" name="hrEvento" value="{$evento->getEv_Hora()}"/>                                                                                    
                                         </div>                                          
                                         <div class="controls" style="margin-bottom:10px;">     
-                                            <label>Observação</label>
+                                            <label>Observação:</label>
                                             <textarea class="input-xlarge arrendondaInputSelect" id="obsEvento" name="obsEvento" rows="3">{$evento->getEv_Descricao()}</textarea><br/>        
                                         </div>                                                                                    
                                     </div>

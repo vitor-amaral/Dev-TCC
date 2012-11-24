@@ -41,14 +41,14 @@
                             <input type="hidden" name="Save" id="Save" value="{$Save}" />
                             <input type="hidden" name="idFuncionario" id="idFuncionario" value="{$funcionario->getFuncionario_ID()}" />
                             <div class="controls" style="margin-bottom:10px;">
-                                <label for="nomeFuncionario" class="control-label" >Nome:</label>
+                                <label for="nomeFuncionario" class="control-label" >Nome(*):</label>
                                 <input type="text" id="nomeFuncionario" name="nomeFuncionario" class="input-xlarge arrendondaInputSelect" value="{$funcionario->getFuncionario_Nome()}">
                            
-                                <label for="matriculaFuncionario" class="control-label" >Matricula:</label>
+                                <label for="matriculaFuncionario" class="control-label" >Matricula(*):</label>
                                 <input type="text" id="matriculaFuncionario" name="matriculaFuncionario" class="input-xlarge arrendondaInputSelect" value="{$funcionario->getFuncionario_Matricula()}">                            
                             </div>
                             <div class="controls" style="margin-bottom:10px;">   
-                                <label for="idcargo" class="control-label" >Cargo:</label>
+                                <label for="idcargo" class="control-label" >Cargo(*):</label>
                                 <select id="idcargo" name="idcargo" class="arrendondaInputSelect">
                                    <option value=""></option>
                                     {foreach from=$cargos item=cargo}

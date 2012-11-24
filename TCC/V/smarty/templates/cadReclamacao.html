@@ -51,12 +51,12 @@
                                                     </option>                                                
                                                  {/foreach}   
                                             </select>
-                                            <label for="tituloReclamacao" class="control-label" style="font-size:13px;">Título:</label>
+                                            <label for="tituloReclamacao" class="control-label" style="font-size:13px;">Título(*):</label>
                                             <input type="text" id="tituloReclamacao" name="tituloReclamacao" class="input-xlarge arrendondaInputSelect" value="{$reclamacao->getReclamacao_titulo()}">
                                         </div>
                                         <div>
                                             <br/>     
-                                            <label for="catReclamacao" class="control-label" style="font-size:13px;">Categoria:</label>
+                                            <label for="catReclamacao" class="control-label" style="font-size:13px;">Categoria(*):</label>
                                             <select id="catReclamacao" name="catReclamacao" class="arrendondaInputSelect">
                                                 <option value="">::Selecione Lista::</option>
                                                 {foreach from=$categorias item=categoria}
@@ -65,7 +65,7 @@
                                                     </option>                                                
                                                  {/foreach}                                                
                                             </select>                                            
-                                            <label for="statusReclamacao" class="control-label" style="font-size:13px;">Status:</label>
+                                            <label for="statusReclamacao" class="control-label" style="font-size:13px;">Status(*):</label>
                                             <select id="statusReclamacao" name="statusReclamacao" class="arrendondaInputSelect">
                                                 <option value="">::Selecione::</option>                                                                                                
                                                     <option value="1" {if $reclamacao->getReclamacao_status() eq 1} selected='selected' {/if} >Positiva</option> 
@@ -74,7 +74,7 @@
                                         </div>
                                         <div> 
                                             <br/>   
-                                            <label>Descrição</label>
+                                            <label>Descrição:</label>
                                             <textarea class="input-xlarge arrendondaInputSelect" id="descReclamacao" name="descReclamacao" rows="3">{$reclamacao->getReclamacao_desc()}</textarea><br/>
                                         </div>  
                                             

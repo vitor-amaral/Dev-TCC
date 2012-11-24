@@ -54,7 +54,7 @@
                                     <input type="hidden" name="idPedido" id="idPedido" value="{$pedido->getPed_ID()}" />
                                     <div class="controls" style="margin-bottom:10px;">
                                         <div>                                  
-                                            <label for="autorPedido" class="control-label" style="font-size:13px;">Cliente:</label>
+                                            <label for="autorPedido" class="control-label" style="font-size:13px;">Cliente(*):</label>
                                             <select id="autorPedido" name="autorPedido" class="arrendondaInputSelect">
                                                 <option value="">::Selecione Lista::</option>
                                                 {foreach from=$clientes item=cliente}
@@ -96,9 +96,9 @@
                                             <br/><br/>                                         
                                         </div>       
                                         <div>
-                                            <label for="qtdeProduto" class="control-label" style="font-size:13px;">Quantidade:</label>
+                                            <label for="qtdeProduto" class="control-label" style="font-size:13px;">Quantidade(*):</label>
                                             <input type="text" id="qtdeProduto" name="qtdeProduto" class="input-small arrendondaInputSelect" value="{$pedido->getPro_Qtde()}">
-                                            <label for="dataPedido" class="control-label" style="font-size:13px;">Data:</label>
+                                            <label for="dataPedido" class="control-label" style="font-size:13px;">Data(*):</label>
                                             <input type="text" id="dataPedido" name="dataPedido" class="input-small arrendondaInputSelect" value="{$pedido->getPed_Data()}">
                                         </div>
                                         <div> 
