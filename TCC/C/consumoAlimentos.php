@@ -18,7 +18,7 @@ if(isset($_REQUEST['alimento'])){
 }
 
 
-$alimentos = $DAO->getProdutoByTipo(0);//tipo = alimento  
+$alimentos = $DAO->getProdutoByTipo(1);//tipo = alimento  
 
 $smarty->assign("alimentos",$alimentos);
 $smarty->display("consumoAlimento.html");
