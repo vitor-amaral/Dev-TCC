@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-11-14 02:48:25
+<?php /* Smarty version 2.6.26, created on 2012-11-26 20:53:50
          compiled from menu.html */ ?>
 <!doctype html>
 <!--[if lt IE 7 ]> <html class="no-js ie6" dir="ltr" lang="en-US"> <![endif]-->
@@ -62,7 +62,7 @@
                                     <ul class="dropdown-menu"> 
                                         <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="listaClientes.php">Gerenciar</a></li> 
                                         <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="listafrequencia.php">Frequencia</a></li>
-                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="#">Pedidos</a></li>
+                                        <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="listaPedidos.php">Pedidos</a></li>
                                     </ul>
                                 </li>
                                                                     
@@ -70,7 +70,7 @@
                                 <li id="menu-item-2" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="listaMensagens.php">Mensagens</a></li>
                                
                                 <li id="menu-item-3" class="menu-item menu-item-type-custom menu-item-object-custom dropdown menu-item-3">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reclama&ccedil;&otilde;es<b class="caret"></b></a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sugest&otilde;es<b class="caret"></b></a>
                                     <ul class="dropdown-menu"> 
                                         <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="listaReclamacoes.php">Gerenciar</a></li> 
                                         <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8"><a href="listaCatReclamacao.php">Categoria</a></li>

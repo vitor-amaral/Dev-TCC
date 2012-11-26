@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2012-10-20 18:18:39
+<?php /* Smarty version 2.6.26, created on 2012-11-26 20:56:49
          compiled from listaReclamacao.html */ ?>
  <?php $_smarty_tpl_vars = $this->_tpl_vars;
 $this->_smarty_include(array('smarty_include_tpl_file' => "menu.html", 'smarty_include_vars' => array()));
@@ -118,7 +118,7 @@ unset($_smarty_tpl_vars);
                                 </div>
                            </form>
                     </fieldset>       
-                    <button onclick="return abreNovo();" class="btn btn-info">Nova Reclamação</button>
+                    <button onclick="return abreNovo();" class="btn btn-info">Nova Sugestão</button>
                     <br/><br/>      
                     <div class="grid">                        
                           <table class="table table-striped table-bordered table-condensed"> 
