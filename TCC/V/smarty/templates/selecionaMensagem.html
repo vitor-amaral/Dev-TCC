@@ -1,0 +1,66 @@
+{include file="menu.html"}    
+<html>
+    {literal}
+    <head>
+        <title>Mensagens</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../V/css/processo.css">
+        <script type="text/javascript">
+            function abreListagem(){
+                window.location.href="listaMensagens.php";
+            }
+        </script>
+    </head>
+    {/literal}
+    <body>
+        <div id="conteudo">
+            <div class="container1">
+                <div class="asdf">
+                    {if $ret eq 'sa'}
+                            <span class="label label-success">SUCESSO</span>
+                            <span> O email foi enviado com Sucesso!</span>
+                     {/if}                    
+                    {if $ret eq 'ea'}
+                            <span class="label label-important">ERRO</span>
+                            <span> Não foi possivel enviar.</span>
+                    {/if}                                         
+                <fieldset id="tabelaCadastro">
+                        <legend id="textoNavegacao">&nbsp;&nbsp;Enviar Mensagens</legend>
+                        <form class="well form-search" name="formMensagem" id="formMensagem" method="POST" action="enviaMensagem.php">
+                                <div class="control-group">                                    
+                                    <input type="hidden" name="idMensagem" id="idMensagem" value="{$mensagem->getMens_ID()}" />
+                                    <div class="controls" style="margin-bottom:10px;">
+                                        <div>      
+                                            <label for="destinatario" class="control-label" style="font-size:13px;">Destinatário:</label>
+                                            <select id="destinatario" name="destinatario" class="arrendondaInputSelect">
+                                                <option value="">::Selecione Lista::</option>
+                                                {foreach from=$clientes item=cliente}
+                                                    <option value="{$cliente->getCli_email()}">
+                                                        {$cliente->getCli_nome()}
+                                                    </option>                                                
+                                                 {/foreach}   
+                                            </select>                                                                       
+                                            <label for="tituloMensagem" class="control-label" style="font-size:13px;">Título:</label>
+                                            <input type="text" id="tituloMensagem" name="tituloMensagem" class="input-xlarge arrendondaInputSelect" value="{$mensagem->getMens_Titulo()}">
+                                        </div>                                        
+                                        <div> 
+                                            <br/>   
+                                            <label>Descrição</label>
+                                            <textarea class="input-xlarge arrendondaInputSelect" id="mensagem" name="mensagem" rows="3">{$mensagem->getMens_Texto()}</textarea><br/>
+                                        </div>  
+                                            
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary" type="submit">{$nomeBotao}</button>     
+                                </div>
+                           </form>                           
+                           <button class="btn" onclick="return abreListagem();">Voltar para Listagem</button>
+                    </fieldset>                                 
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
